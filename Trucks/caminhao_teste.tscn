@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dcfqfw4mmc4mr"]
+
+[ext_resource type="Script" uid="uid://7hffxe3xibkx" path="res://Scripts/player.gd" id="1_7ydee"]
+[ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="2_7ydee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv004"]
+size = Vector2(132, 129)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ydee"]
+radius = 10.850695
+
+[node name="CaminhaoTeste" type="CharacterBody2D" unique_id=1732026516]
+script = ExtResource("1_7ydee")
+
+[node name="Arte" type="Sprite2D" parent="." unique_id=526977560]
+rotation = 1.5707964
+scale = Vector2(0.3261048, 0.3261048)
+texture = ExtResource("2_7ydee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=991320497]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_dv004")
+
+[node name="DetectorLixo" type="Area2D" parent="." unique_id=1768694386]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorLixo" unique_id=33714655]
+scale = Vector2(10.600001, 10.600001)
+shape = SubResource("CircleShape2D_7ydee")
