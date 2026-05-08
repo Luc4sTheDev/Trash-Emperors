@@ -28,3 +28,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorLixo" unique_id=33714655]
 scale = Vector2(10.600001, 10.600001)
 shape = SubResource("CircleShape2D_7ydee")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1377896790]
+radius = 204.22

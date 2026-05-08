@@ -21,16 +21,18 @@ var gas_max: float = 100.0
 var out_of_gas :bool = false
 var pode_abastecer :bool = false
 var abastecendo :bool = false
+var is_reciclando = false
 
 var lixo_coletado :int = 0
 var lixo_max :int = 2
-
 
 
 var lixo_atual: Area2D = null
 
 @onready var interagir: Control = $"../UI/Interact"
 @onready var detector_lixo: Area2D = $DetectorLixo
+@onready var reciclar: Control = $"../UI/Reciclar"
+
 
 func _ready():
 	detector_lixo.area_entered.connect(_on_lixo_area_entered)
@@ -44,6 +46,7 @@ func _physics_process(delta):
 	gas_system(delta)
 	coletar_lixo()
 	calculate_steering(delta)
+	reclicando()
 
 	move_and_slide()
 
@@ -72,8 +75,20 @@ func handle_input(delta):
 			acceleration = -transform.x * brake_force
 		else:
 			acceleration = -transform.x * engine_power * 0.6
-
 	velocity += acceleration * delta
+
+func reclicando():
+	var is_parado = velocity.length() < 5
+	
+	if is_parado and lixo_coletado >= lixo_max:
+		reciclar.show()
+		if Input.is_action_just_pressed("reciclar"):
+			velocity = Vector2.ZERO
+			lixo_coletado = 0
+			pontos *= 2
+			label.text = " " + str(pontos)
+	else:
+		reciclar.hide()
 
 func apply_friction():
 	velocity *= drag
@@ -81,6 +96,7 @@ func apply_friction():
 
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
+
 
 func calculate_steering(delta):
 	var forward_speed = velocity.dot(transform.x)

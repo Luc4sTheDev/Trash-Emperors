@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="4_ldv05"]
 [ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="6_q6rdc"]
 [ext_resource type="Script" uid="uid://nhf6jsucnrhl" path="res://Scripts/Objetos/lixo.gd" id="6_viufs"]
+[ext_resource type="Script" uid="uid://l46kcg6auq6o" path="res://Scripts/Objetos/arbusto_destroy.gd" id="8_po1j6"]
+[ext_resource type="Script" uid="uid://byjdpjttnbg81" path="res://Scripts/Objetos/arbusto_spawn.gd" id="8_y5pio"]
 
 [sub_resource type="GDScript" id="GDScript_viufs"]
 
@@ -15,6 +17,14 @@ size = Vector2(313, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fetcc"]
 size = Vector2(99, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6rdc"]
+size = Vector2(138, 138)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y5pio"]
+vertices = PackedVector2Array(352.67188, -133.03125, -1096.1484, -137.96094, -1100.8438, -427.39063, 341.32813, -484.60938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1111, -437, -1106, -128, 363, -123, 351, -495)])
 
 [node name="Node2D" type="Node2D" unique_id=524872734]
 
@@ -85,6 +95,30 @@ offset_right = 41.0
 offset_bottom = 29.0
 scale = Vector2(2.7999976, 2.7999976)
 text = "E"
+
+[node name="Reciclar" type="Control" parent="UI" unique_id=2053399145]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 640.0
+
+[node name="Panel" type="Panel" parent="UI/Reciclar" unique_id=983284871]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 103.0
+offset_right = 607.0
+offset_bottom = 186.0
+
+[node name="Label" type="Label" parent="UI/Reciclar/Panel" unique_id=276434133]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 6.0
+offset_right = 41.0
+offset_bottom = 29.0
+scale = Vector2(2.7999976, 2.7999976)
+text = "F"
 
 [node name="Pontuacao" type="Control" parent="UI" unique_id=1762966285]
 layout_mode = 3
@@ -191,6 +225,31 @@ texture = ExtResource("6_q6rdc")
 position = Vector2(39.5, 29)
 shape = SubResource("RectangleShape2D_fetcc")
 
+[node name="ArbustoSpawn" type="Area2D" parent="." unique_id=1076728895]
+position = Vector2(60, -289)
+script = ExtResource("8_y5pio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArbustoSpawn" unique_id=266022628]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_q6rdc")
+
+[node name="Timer" type="Timer" parent="ArbustoSpawn" unique_id=222912473]
+wait_time = 5.0
+autostart = true
+
+[node name="ArbustoDestroy" type="Area2D" parent="." unique_id=635821612 groups=["animalrua", "arbustao", "lixo"]]
+position = Vector2(-868, -289)
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("8_po1j6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArbustoDestroy" unique_id=816450039]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_q6rdc")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2137385458]
+navigation_polygon = SubResource("NavigationPolygon_y5pio")
+
 [connection signal="body_entered" from="PostoDeGasolina" to="CaminhaoTeste" method="_on_posto_de_gasolina_body_entered"]
 [connection signal="body_exited" from="PostoDeGasolina" to="CaminhaoTeste" method="_on_posto_de_gasolina_body_exited"]
 [connection signal="area_entered" from="Lixo" to="CaminhaoTeste" method="_on_lixo_area_entered"]
@@ -205,3 +264,5 @@ shape = SubResource("RectangleShape2D_fetcc")
 [connection signal="area_exited" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_area_exited"]
 [connection signal="body_entered" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_body_entered"]
 [connection signal="body_exited" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_body_exited"]
+[connection signal="timeout" from="ArbustoSpawn/Timer" to="ArbustoSpawn" method="_on_timer_timeout"]
+[connection signal="body_entered" from="ArbustoDestroy" to="ArbustoDestroy" method="_on_body_entered"]
