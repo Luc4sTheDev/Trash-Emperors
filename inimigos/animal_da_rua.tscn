@@ -4,9 +4,6 @@
 [ext_resource type="Script" uid="uid://b7tc07cwre4h1" path="res://Scripts/Inimigos/animal_da_rua.gd" id="1_rlkt0"]
 [ext_resource type="AudioStream" uid="uid://rth6hctwmc6c" path="res://meme.mp3" id="3_h00ns"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlkt0"]
-size = Vector2(160, 163)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h00ns"]
 size = Vector2(171, 175)
 
@@ -15,15 +12,10 @@ z_index = -1
 collision_layer = 8
 collision_mask = 17
 script = ExtResource("1_rlkt0")
-speed = 300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1170778652]
 scale = Vector2(0.14670932, 0.10185169)
 texture = ExtResource("1_77854")
-
-[node name="Colisor" type="CollisionShape2D" parent="." unique_id=2107733240]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_rlkt0")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=459515864]
 

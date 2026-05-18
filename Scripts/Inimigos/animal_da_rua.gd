@@ -1,8 +1,7 @@
 class_name AnimalDaRua
 extends CharacterBody2D
 
-@export var speed:float = 100.0
-
+@export var speed:float = 500.0
 var arbusto: Node2D
 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D

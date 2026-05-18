@@ -6,6 +6,8 @@ signal gas_change(new_gas: float)
 var pontos = 0
 @onready var label: Label = $"../UI/Pontuacao/Label"
 
+@export var life_count = 3
+
 @export var steering_angle := 15.0
 @export var engine_power := 900.0
 @export var brake_force := 1200.0
@@ -25,6 +27,10 @@ var is_reciclando = false
 
 var lixo_coletado :int = 0
 var lixo_max :int = 2
+
+var vida:int = 3
+
+@export var hurt_box:Area2D = null
 
 
 var lixo_atual: Area2D = null
@@ -133,6 +139,14 @@ func coletar_lixo():
 		velocity = Vector2.ZERO
 		lixo_atual.destruir()
 	
+func takeDamage(amount: int):
+	vida -= amount
+	print("Tomou Dano")
+	if vida <= 0:
+		die()
+
+func die():
+	set_physics_process(false)
 
 func _on_lixo_area_entered(area):
 	if area.is_in_group("lixo"):
@@ -152,3 +166,9 @@ func _on_posto_de_gasolina_body_entered(body):
 func _on_posto_de_gasolina_body_exited(body):
 	pode_abastecer = false
 	interagir.hide()
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	var dano = area.owner
+	if dano is AnimalDaRua and dano != self:
+		if "Hitbox" in area.name:
+			takeDamage(1)
