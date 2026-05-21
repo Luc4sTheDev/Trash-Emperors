@@ -1,0 +1,268 @@
+[gd_scene format=3 uid="uid://denrdfjgqn16r"]
+
+[ext_resource type="PackedScene" uid="uid://dcfqfw4mmc4mr" path="res://Trucks/caminhao_teste.tscn" id="1_wohp6"]
+[ext_resource type="Script" uid="uid://qwlqngrd5uql" path="res://Scripts/medidor_gasolina.gd" id="2_b1qr3"]
+[ext_resource type="Script" uid="uid://bdr0fmie6yw8m" path="res://Scripts/UI/minimap.gd" id="3_rg1ny"]
+[ext_resource type="Texture2D" uid="uid://uvbaou6bk6aq" path="res://PlaceHolder/MapaPlaceHolder.jpg" id="4_fetcc"]
+[ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="4_ldv05"]
+[ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="6_q6rdc"]
+[ext_resource type="Script" uid="uid://nhf6jsucnrhl" path="res://Scripts/Objetos/lixo.gd" id="6_viufs"]
+[ext_resource type="Script" uid="uid://l46kcg6auq6o" path="res://Scripts/Objetos/arbusto_destroy.gd" id="8_po1j6"]
+[ext_resource type="Script" uid="uid://byjdpjttnbg81" path="res://Scripts/Objetos/arbusto_spawn.gd" id="8_y5pio"]
+
+[sub_resource type="GDScript" id="GDScript_viufs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1qr3"]
+size = Vector2(313, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fetcc"]
+size = Vector2(99, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6rdc"]
+size = Vector2(138, 138)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y5pio"]
+vertices = PackedVector2Array(352.67188, -133.03125, -1096.1484, -137.96094, -1100.8438, -427.39063, 341.32813, -484.60938)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1111, -437, -1106, -128, 363, -123, 351, -495)])
+
+[node name="Node2D" type="Node2D" unique_id=524872734]
+
+[node name="CaminhaoTeste" parent="." unique_id=1732026516 instance=ExtResource("1_wohp6")]
+position = Vector2(558, 277)
+
+[node name="Camera2D" type="Camera2D" parent="CaminhaoTeste" unique_id=1209512541]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1276694342]
+
+[node name="MedidorGasolina" type="Control" parent="UI" unique_id=1427323302]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1148.0
+offset_bottom = 647.0
+script = ExtResource("2_b1qr3")
+truck_path = NodePath("../../CaminhaoTeste")
+
+[node name="GasolinaUI" type="ProgressBar" parent="UI/MedidorGasolina" unique_id=365774672]
+layout_mode = 0
+offset_left = 1023.00006
+offset_top = 623.0
+offset_right = 1332.0
+offset_bottom = 683.0
+rotation = -1.5603449
+show_percentage = false
+
+[node name="F" type="Label" parent="UI/MedidorGasolina" unique_id=1959530651]
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 337.0
+offset_right = 1057.0
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 37
+text = "F"
+horizontal_alignment = 1
+
+[node name="E" type="Label" parent="UI/MedidorGasolina" unique_id=638999878]
+layout_mode = 0
+offset_left = 1043.0
+offset_top = 561.0
+offset_right = 1063.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 37
+text = "E"
+horizontal_alignment = 1
+
+[node name="Interact" type="Control" parent="UI" unique_id=512357266]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 640.0
+
+[node name="Panel" type="Panel" parent="UI/Interact" unique_id=1107901214]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 103.0
+offset_right = 607.0
+offset_bottom = 186.0
+
+[node name="Label" type="Label" parent="UI/Interact/Panel" unique_id=973433512]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 6.0
+offset_right = 41.0
+offset_bottom = 29.0
+scale = Vector2(2.7999976, 2.7999976)
+text = "E"
+
+[node name="Reciclar" type="Control" parent="UI" unique_id=2053399145]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 640.0
+
+[node name="Panel" type="Panel" parent="UI/Reciclar" unique_id=983284871]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 103.0
+offset_right = 607.0
+offset_bottom = 186.0
+
+[node name="Label" type="Label" parent="UI/Reciclar/Panel" unique_id=276434133]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 6.0
+offset_right = 41.0
+offset_bottom = 29.0
+scale = Vector2(2.7999976, 2.7999976)
+text = "F"
+
+[node name="Pontuacao" type="Control" parent="UI" unique_id=1762966285]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 938.0
+offset_right = 978.0
+offset_bottom = 22.463768
+scale = Vector2(2.76, 2.76)
+script = SubResource("GDScript_viufs")
+
+[node name="Label" type="Label" parent="UI/Pontuacao" unique_id=1366477279]
+layout_mode = 0
+offset_left = -12.68116
+offset_right = 27.31884
+offset_bottom = 23.0
+
+[node name="Minimapa" type="SubViewportContainer" parent="UI" unique_id=1153776621]
+offset_left = 49.000004
+offset_top = 449.0
+offset_right = 89.0
+offset_bottom = 489.0
+scale = Vector2(2.5999992, 2.5999992)
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="UI/Minimapa" unique_id=1995663522]
+handle_input_locally = false
+size = Vector2i(40, 40)
+render_target_update_mode = 4
+script = ExtResource("3_rg1ny")
+
+[node name="minimapCam" type="Camera2D" parent="UI/Minimapa/SubViewport" unique_id=886457918]
+zoom = Vector2(0.1, 0.1)
+
+[node name="Teste" type="Sprite2D" parent="UI/Minimapa/SubViewport" unique_id=84032492]
+position = Vector2(0, -18.846159)
+scale = Vector2(6.7600017, 6.7600017)
+texture = ExtResource("4_fetcc")
+
+[node name="iconPlayer" type="Sprite2D" parent="UI/Minimapa" unique_id=2066406777]
+position = Vector2(20, 20)
+scale = Vector2(0.040594265, 0.040594265)
+texture = ExtResource("4_ldv05")
+
+[node name="PostoDeGasolina" type="Area2D" parent="." unique_id=473687127]
+z_index = -1
+position = Vector2(1543, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PostoDeGasolina" unique_id=1561046242]
+position = Vector2(-162, 102)
+shape = SubResource("RectangleShape2D_b1qr3")
+
+[node name="Sprite2D" type="Sprite2D" parent="PostoDeGasolina" unique_id=909622487]
+position = Vector2(-162, 107)
+texture = ExtResource("6_q6rdc")
+
+[node name="Lixo" type="Area2D" parent="." unique_id=1155476694 groups=["lixo"]]
+z_index = -1
+position = Vector2(463, 0)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo" unique_id=2021406370]
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = ExtResource("6_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo" unique_id=922468129]
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="Lixo2" type="Area2D" parent="." unique_id=171386178 groups=["lixo"]]
+z_index = -1
+position = Vector2(605, 0)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo2" unique_id=1949599703]
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = ExtResource("6_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo2" unique_id=1643709806]
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="Lixo3" type="Area2D" parent="." unique_id=1390908635 groups=["lixo"]]
+z_index = -1
+position = Vector2(752, 0)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo3" unique_id=1424490307]
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = ExtResource("6_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo3" unique_id=638171888]
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="ArbustoSpawn" type="Area2D" parent="." unique_id=1076728895]
+position = Vector2(60, -289)
+script = ExtResource("8_y5pio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArbustoSpawn" unique_id=266022628]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_q6rdc")
+
+[node name="Timer" type="Timer" parent="ArbustoSpawn" unique_id=222912473]
+wait_time = 5.0
+autostart = true
+
+[node name="ArbustoDestroy" type="Area2D" parent="." unique_id=635821612 groups=["animalrua", "arbustao", "lixo"]]
+position = Vector2(-868, -289)
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("8_po1j6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArbustoDestroy" unique_id=816450039]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_q6rdc")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2137385458]
+navigation_polygon = SubResource("NavigationPolygon_y5pio")
+
+[connection signal="body_entered" from="PostoDeGasolina" to="CaminhaoTeste" method="_on_posto_de_gasolina_body_entered"]
+[connection signal="body_exited" from="PostoDeGasolina" to="CaminhaoTeste" method="_on_posto_de_gasolina_body_exited"]
+[connection signal="area_entered" from="Lixo" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_exited" from="Lixo" to="CaminhaoTeste" method="_on_lixo_area_exited"]
+[connection signal="body_entered" from="Lixo" to="CaminhaoTeste" method="_on_lixo_body_entered"]
+[connection signal="body_exited" from="Lixo" to="CaminhaoTeste" method="_on_lixo_body_exited"]
+[connection signal="area_entered" from="Lixo2" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_exited" from="Lixo2" to="CaminhaoTeste" method="_on_lixo_area_exited"]
+[connection signal="body_entered" from="Lixo2" to="CaminhaoTeste" method="_on_lixo_body_entered"]
+[connection signal="body_exited" from="Lixo2" to="CaminhaoTeste" method="_on_lixo_body_exited"]
+[connection signal="area_entered" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_exited" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_area_exited"]
+[connection signal="body_entered" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_body_entered"]
+[connection signal="body_exited" from="Lixo3" to="CaminhaoTeste" method="_on_lixo_body_exited"]
+[connection signal="timeout" from="ArbustoSpawn/Timer" to="ArbustoSpawn" method="_on_timer_timeout"]
+[connection signal="body_entered" from="ArbustoDestroy" to="ArbustoDestroy" method="_on_body_entered"]

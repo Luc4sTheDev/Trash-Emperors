@@ -15,6 +15,7 @@ size = Vector2(238, 147)
 [node name="CaminhaoTeste" type="CharacterBody2D" unique_id=1732026516 node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("1_7ydee")
 hurt_box = NodePath("Hurtbox")
+knockback_friction = 2000.0
 
 [node name="Arte" type="Sprite2D" parent="." unique_id=526977560]
 rotation = 1.5707964

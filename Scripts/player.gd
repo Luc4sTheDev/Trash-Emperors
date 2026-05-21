@@ -12,6 +12,8 @@ var pontos = 0
 @export var engine_power := 900.0
 @export var brake_force := 1200.0
 
+@export var forcaLerdao: float = 500.0
+
 @export var friction := 0.98
 @export var drag := 0.995
 
@@ -24,14 +26,19 @@ var out_of_gas :bool = false
 var pode_abastecer :bool = false
 var abastecendo :bool = false
 var is_reciclando = false
+var is_machucando:bool = false
+var is_invencivel:bool = false
+
 
 var lixo_coletado :int = 0
 var lixo_max :int = 2
-
 var vida:int = 3
 
 @export var hurt_box:Area2D = null
 
+var knockback_direction:= Vector2.ZERO
+var knockback_strength:float = 0.0
+@export var knockback_friction:float = 800.0
 
 var lixo_atual: Area2D = null
 
@@ -53,7 +60,10 @@ func _physics_process(delta):
 	coletar_lixo()
 	calculate_steering(delta)
 	reclicando()
-
+	
+	if knockback_strength > 0:
+		velocity += knockback_direction * knockback_strength
+		knockback_strength = move_toward(knockback_strength, 0.0, knockback_friction * delta)
 	move_and_slide()
 
 func gas_system(delta):
@@ -66,6 +76,9 @@ func gas_system(delta):
 		gas_change.emit(current_gas)
 
 func handle_input(delta):
+	if is_machucando:
+		return
+
 	var acceleration = Vector2.ZERO
 
 	var turn = Input.get_axis("ui_left", "ui_right")
@@ -73,14 +86,19 @@ func handle_input(delta):
 
 	var forward_speed = velocity.dot(transform.x)
 
+	var proporcao_peso = float(lixo_coletado) / float(lixo_max)
+	proporcao_peso = clamp(proporcao_peso, 0.0, 1.0)
+	var current_power = lerp(engine_power, forcaLerdao, proporcao_peso)
+
 	if Input.is_action_pressed("ui_up") and not out_of_gas:
-		acceleration = transform.x * engine_power
+		acceleration = transform.x * current_power
 
 	elif Input.is_action_pressed("ui_down") and not out_of_gas:
 		if forward_speed > 5:
 			acceleration = -transform.x * brake_force
 		else:
-			acceleration = -transform.x * engine_power * 0.6
+			acceleration = -transform.x * current_power * 0.6
+			
 	velocity += acceleration * delta
 
 func reclicando():
@@ -105,6 +123,8 @@ func apply_friction():
 
 
 func calculate_steering(delta):
+	if is_machucando:
+		return
 	var forward_speed = velocity.dot(transform.x)
 
 	if abs(forward_speed) < 1:
@@ -140,13 +160,33 @@ func coletar_lixo():
 		lixo_atual.destruir()
 	
 func takeDamage(amount: int):
+	if is_invencivel:
+		return
 	vida -= amount
-	print("Tomou Dano")
 	if vida <= 0:
 		die()
+		return
+
+	is_machucando = true
+	is_invencivel = true
+	velocity = Vector2.ZERO
+	print("Tomou Dano")
+	var tween = create_tween()
+	tween.set_loops(15) 
+	tween.tween_property(self, "modulate:a", 0.0, 0.1) 
+	tween.tween_property(self, "modulate:a", 1.0, 0.1)
+	await get_tree().create_timer(2.0).timeout
+	is_machucando = false
+	await get_tree().create_timer(1.0).timeout
+	is_invencivel = false
+	
 
 func die():
 	set_physics_process(false)
+
+func knockback(attacker_global_position: Vector2, hit_strength: float):
+	knockback_direction = (global_position - attacker_global_position).normalized()
+	knockback_strength = hit_strength
 
 func _on_lixo_area_entered(area):
 	if area.is_in_group("lixo"):
@@ -163,6 +203,7 @@ func _on_posto_de_gasolina_body_entered(body):
 		pode_abastecer = true
 		interagir.show()
 
+
 func _on_posto_de_gasolina_body_exited(body):
 	pode_abastecer = false
 	interagir.hide()
@@ -172,3 +213,4 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if dano is AnimalDaRua and dano != self:
 		if "Hitbox" in area.name:
 			takeDamage(1)
+			knockback(dano.global_position, 200.0)

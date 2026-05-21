@@ -9,8 +9,6 @@ var arbusto: Node2D
 func _ready():
 	add_to_group("animalrua")
 	
-	nav_agent.avoidance_enabled = true
-	
 	arbusto = get_tree().get_first_node_in_group("arbustao")
 	makepath()
 
@@ -20,8 +18,7 @@ func _physics_process(delta: float) -> void:
 		
 	var dir = global_position.direction_to(nav_agent.get_next_path_position())
 	
-	nav_agent.velocity = dir * speed
-	
+	velocity = dir * speed
 	move_and_slide()
 
 func makepath() -> void:
@@ -34,8 +31,3 @@ func _on_timer_timeout() -> void:
 
 func destruirAnimal():
 	queue_free()
-
-
-func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	velocity = safe_velocity
-	move_and_slide()

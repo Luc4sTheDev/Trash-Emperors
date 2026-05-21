@@ -7,11 +7,15 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h00ns"]
 size = Vector2(171, 175)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13b1n"]
+size = Vector2(177, 185)
+
 [node name="AnimalDaRUa" type="CharacterBody2D" unique_id=923386570 groups=["animalrua"]]
 z_index = -1
 collision_layer = 8
-collision_mask = 17
+collision_mask = 16
 script = ExtResource("1_rlkt0")
+speed = 800.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1170778652]
 scale = Vector2(0.14670932, 0.10185169)
@@ -31,6 +35,10 @@ shape = SubResource("RectangleShape2D_h00ns")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1614309438]
 stream = ExtResource("3_h00ns")
 autoplay = true
+
+[node name="Colisor" type="CollisionShape2D" parent="." unique_id=748610260]
+position = Vector2(-2.5, -1.5)
+shape = SubResource("RectangleShape2D_13b1n")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
