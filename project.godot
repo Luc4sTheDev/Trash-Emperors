@@ -12,14 +12,20 @@ config_version=5
 
 config/name="Trash Emperors"
 run/main_scene="uid://denrdfjgqn16r"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PontosGlobal="*uid://c7jneilmvslri"
+GerenciadorPartida="*uid://pqn8quieqxai"
 
 [global_group]
 
 arbustao=""
 lixo=""
 animalrua=""
+gasolina=""
 
 [input]
 

@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://nqjwfvs6511b"]
+
+[ext_resource type="Script" uid="uid://qwlqngrd5uql" path="res://Scripts/medidor_gasolina.gd" id="1_53oju"]
+
+[node name="UI" type="CanvasLayer" unique_id=2043441723]
+
+[node name="MedidorGasolina" type="Control" parent="." unique_id=552492409]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1148.0
+offset_bottom = 647.0
+script = ExtResource("1_53oju")
+truck_path = NodePath("../../CaminhaoTeste")
+
+[node name="GasolinaUI" type="ProgressBar" parent="MedidorGasolina" unique_id=1087027748]
+layout_mode = 0
+offset_left = 1023.00006
+offset_top = 623.0
+offset_right = 1332.0
+offset_bottom = 683.0
+rotation = -1.5603449
+show_percentage = false
+
+[node name="F" type="Label" parent="MedidorGasolina" unique_id=691288408]
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 337.0
+offset_right = 1057.0
+offset_bottom = 360.0
+theme_override_font_sizes/font_size = 37
+text = "F"
+horizontal_alignment = 1
+
+[node name="E" type="Label" parent="MedidorGasolina" unique_id=1418784600]
+layout_mode = 0
+offset_left = 1043.0
+offset_top = 561.0
+offset_right = 1063.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 37
+text = "E"
+horizontal_alignment = 1
+
+[node name="TelaDerrota" type="Control" parent="." unique_id=110275928]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="TelaDerrota" unique_id=1834831263]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 240.0
+offset_right = 453.0
+offset_bottom = 263.0
+scale = Vector2(4.48, 4.48)
+text = "Game Over"
+
+[node name="Interact" type="Control" parent="." unique_id=14731725]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 640.0
+
+[node name="Panel" type="Panel" parent="Interact" unique_id=884204517]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 103.0
+offset_right = 607.0
+offset_bottom = 186.0
+
+[node name="Label" type="Label" parent="Interact/Panel" unique_id=1279425379]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 6.0
+offset_right = 41.0
+offset_bottom = 29.0
+scale = Vector2(2.7999976, 2.7999976)
+text = "E"
+
+[node name="Reciclar" type="Control" parent="." unique_id=1276635372]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 640.0
+
+[node name="Panel" type="Panel" parent="Reciclar" unique_id=1734500258]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 103.0
+offset_right = 607.0
+offset_bottom = 186.0
+
+[node name="Label" type="Label" parent="Reciclar/Panel" unique_id=1183309230]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 6.0
+offset_right = 41.0
+offset_bottom = 29.0
+scale = Vector2(2.7999976, 2.7999976)
+text = "F"
+
+[node name="Pontuacao" type="Control" parent="." unique_id=349053975]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1003.0
+offset_right = 1043.0
+offset_bottom = 22.463768
+scale = Vector2(2.76, 2.76)
+
+[node name="Label" type="Label" parent="Pontuacao" unique_id=960559259]
+layout_mode = 0
+offset_left = -12.68116
+offset_right = 27.31884
+offset_bottom = 23.0
+
+[node name="TelaVitoria" type="Control" parent="." unique_id=792018269]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MensagemVitoria" type="Label" parent="TelaVitoria" unique_id=935886478]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 224.00002
+offset_right = 436.0
+offset_bottom = 247.00002
+scale = Vector2(4.8, 4.8)
+
+[node name="Minimapa" type="Control" parent="." unique_id=2003082503]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Minimapa" unique_id=1845044047]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 604.0
+offset_right = 293.0
+offset_bottom = 631.0
+rotation = -1.5707964
+scale = Vector2(1.7599989, 1.7599989)
+show_percentage = false

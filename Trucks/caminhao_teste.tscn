@@ -15,7 +15,6 @@ size = Vector2(238, 147)
 [node name="CaminhaoTeste" type="CharacterBody2D" unique_id=1732026516 node_paths=PackedStringArray("hurt_box")]
 script = ExtResource("1_7ydee")
 hurt_box = NodePath("Hurtbox")
-knockback_friction = 2000.0
 
 [node name="Arte" type="Sprite2D" parent="." unique_id=526977560]
 rotation = 1.5707964
@@ -26,11 +25,12 @@ texture = ExtResource("2_7ydee")
 position = Vector2(5.5, -0.5)
 shape = SubResource("RectangleShape2D_dv004")
 
-[node name="DetectorLixo" type="Area2D" parent="." unique_id=1768694386]
+[node name="DetectorObjetos" type="Area2D" parent="." unique_id=1768694386]
+scale = Vector2(1.1442349, 1.1442349)
 collision_layer = 2
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorLixo" unique_id=33714655]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorObjetos" unique_id=33714655]
 scale = Vector2(10.600001, 10.600001)
 shape = SubResource("CircleShape2D_7ydee")
 

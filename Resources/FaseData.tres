@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="FaseData" format=3 uid="uid://crjniuxvf3guj"]
+
+[ext_resource type="Script" uid="uid://b5xrksvy6wfem" path="res://Resources/ScriptsResources/Fases.gd" id="1_kyny4"]
+
+[resource]
+script = ExtResource("1_kyny4")

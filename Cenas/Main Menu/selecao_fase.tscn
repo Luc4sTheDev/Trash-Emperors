@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dbox4ey1v62nh"]
+
+[ext_resource type="Script" uid="uid://dv5eu4rww8mle" path="res://Scripts/UI/pontuacao_do_jogador.gd" id="1_1i438"]
+[ext_resource type="Script" uid="uid://caifqkyc0ua2a" path="res://Resources/ScriptsResources/CompraFase.gd" id="1_fyks6"]
+[ext_resource type="Resource" uid="uid://dqmx3rmogfwby" path="res://Resources/Teste.tres" id="2_slgbb"]
+[ext_resource type="Texture2D" uid="uid://b6iwlx586ew67" path="res://PlaceHolder/Cadeado.png" id="4_v7667"]
+
+[node name="SelecaoFase" type="CanvasLayer" unique_id=76733478]
+
+[node name="PontuacaoDoJogador" type="Label" parent="." unique_id=1777559694]
+offset_left = 1022.00006
+offset_top = 27.0
+offset_right = 1062.0
+offset_bottom = 50.0
+scale = Vector2(2.1599998, 2.1599998)
+script = ExtResource("1_1i438")
+
+[node name="Fase1" type="Button" parent="." unique_id=607633646]
+offset_left = 62.0
+offset_top = 199.0
+offset_right = 127.15152
+offset_bottom = 266.80304
+scale = Vector2(2.6399999, 2.6399999)
+script = ExtResource("1_fyks6")
+dados_da_fase = ExtResource("2_slgbb")
+
+[node name="NomeFase" type="Label" parent="Fase1" unique_id=605938199]
+layout_mode = 0
+offset_left = 17.803032
+offset_top = 70.07576
+offset_right = 68.560616
+offset_bottom = 93.07576
+scale = Vector2(0.590909, 0.590909)
+text = "aaaaaa"
+
+[node name="Preco" type="Label" parent="Fase1" unique_id=1807001432]
+layout_mode = 0
+offset_left = 15.909092
+offset_top = 84.848495
+offset_right = 62.909092
+offset_bottom = 107.848495
+scale = Vector2(0.63636327, 0.63636327)
+horizontal_alignment = 1
+
+[node name="Cadeado" type="Sprite2D" parent="Fase1" unique_id=594420939]
+position = Vector2(31.818186, 32.57576)
+scale = Vector2(0.26821095, 0.26821095)
+texture = ExtResource("4_v7667")
+
+[connection signal="pressed" from="Fase1" to="Fase1" method="_on_pressed"]

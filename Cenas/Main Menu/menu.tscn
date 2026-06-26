@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cg5xgwwxhjdyh"]
+
+[ext_resource type="Script" uid="uid://jiqc54xlmasd" path="res://Scripts/Tela de Selecao/menu.gd" id="1_fnmrv"]
+
+[node name="Menu" type="CanvasLayer" unique_id=556424011]
+script = ExtResource("1_fnmrv")
+
+[node name="Label" type="Label" parent="." unique_id=1180092028]
+offset_left = 281.0
+offset_top = 136.0
+offset_right = 421.0
+offset_bottom = 159.0
+scale = Vector2(4.12, 4.12)
+text = "TRASH EMPERORS"
+
+[node name="Play" type="Button" parent="." unique_id=17979002]
+offset_left = 478.99997
+offset_top = 275.0
+offset_right = 537.0
+offset_bottom = 306.0
+scale = Vector2(2.9999988, 2.9999988)
+text = "JOGAR"
+
+[node name="Loja" type="Button" parent="." unique_id=1422563345]
+offset_left = 478.99997
+offset_top = 405.0
+offset_right = 535.4971
+offset_bottom = 436.0
+scale = Vector2(3.0444024, 3.0444024)
+text = "Loja"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Loja" to="." method="_on_loja_pressed"]
