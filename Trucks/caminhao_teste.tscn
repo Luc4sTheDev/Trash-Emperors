@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7hffxe3xibkx" path="res://Scripts/player.gd" id="1_7ydee"]
 [ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="2_7ydee"]
+[ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="3_dc4nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv004"]
 size = Vector2(183, 129)
@@ -12,11 +13,16 @@ radius = 10.850695
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ydee"]
 size = Vector2(238, 147)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1278.4198, 230.26285)
+
 [node name="CaminhaoTeste" type="CharacterBody2D" unique_id=1732026516 node_paths=PackedStringArray("hurt_box")]
+scale = Vector2(0.76000124, 0.76000124)
 script = ExtResource("1_7ydee")
+front_speed = 800.0
 hurt_box = NodePath("Hurtbox")
 
-[node name="Arte" type="Sprite2D" parent="." unique_id=526977560]
+[node name="spriteCaminhao" type="Sprite2D" parent="." unique_id=526977560]
 rotation = 1.5707964
 scale = Vector2(0.3261048, 0.3261048)
 texture = ExtResource("2_7ydee")
@@ -44,4 +50,22 @@ position = Vector2(-1, 1.5)
 shape = SubResource("RectangleShape2D_7ydee")
 debug_color = Color(0.9979833, 0, 0.16405195, 0.41960785)
 
+[node name="SensorPerigo" type="Area2D" parent="." unique_id=1088596310]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SensorPerigo" unique_id=23563026]
+position = Vector2(738.1567, 7.2368164)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.8540604, 0.36944702, 3.85046e-07, 0.41960785)
+
+[node name="Teste" type="CanvasLayer" parent="." unique_id=1468592174]
+
+[node name="IconePerigo" type="Sprite2D" parent="Teste" unique_id=2014180420]
+visible = false
+position = Vector2(566, 63)
+scale = Vector2(0.43475735, 0.43475735)
+texture = ExtResource("3_dc4nm")
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="SensorPerigo" to="." method="_on_sensor_perigo_body_entered"]
+[connection signal="body_exited" from="SensorPerigo" to="." method="_on_sensor_perigo_body_exited"]

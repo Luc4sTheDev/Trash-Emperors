@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkinData" format=3 uid="uid://bbtl1rqgaen16"]
+
+[ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="1_oawwl"]
+[ext_resource type="Script" uid="uid://dkj66c83fpgd" path="res://Resources/ScriptsResources/Skins.gd" id="1_u2e3t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oawwl"]
+load_path = "res://.godot/imported/Car.png-a8ebf23b341397b5b3905f3077e8c910.ctex"
+
+[resource]
+script = ExtResource("1_u2e3t")
+nome_da_skin = "Teste"
+esta_desbloqueada = true
+textura_caminhao = SubResource("CompressedTexture2D_oawwl")
+icone_loja = ExtResource("1_oawwl")

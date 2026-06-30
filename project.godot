@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PontosGlobal="*uid://c7jneilmvslri"
 GerenciadorPartida="*uid://pqn8quieqxai"
+InventarioGlobal="*uid://devigeilbxq1g"
 
 [global_group]
 
@@ -26,6 +27,8 @@ arbustao=""
 lixo=""
 animalrua=""
 gasolina=""
+inimigos=""
+Parede=""
 
 [input]
 

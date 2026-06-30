@@ -4,14 +4,21 @@ extends Node2D
 @onready var tela_vitoria: Control = $UI/TelaVitoria
 @onready var tela_derrota: Control = $UI/TelaDerrota
 @onready var mensagem_vitoria: Label = $UI/TelaVitoria/MensagemVitoria
+@onready var reiniciar: Button = $UI/Reiniciar
+@onready var voltar_ao_menu: Button = $UI/VoltarAoMenu
+
 
 func _ready() -> void:
 	GerenciadorPartida.progresso_alterado.connect(_on_progresso_alterado)
 	GerenciadorPartida.partida_ganha.connect(_on_partida_ganha)
 	GerenciadorPartida.partida_perdida.connect(_on_partida_perdida)
+	reiniciar.pressed.connect(_on_reiniciar_pressed)
+	voltar_ao_menu.pressed.connect(_on_menu_backPressed)
 	
 	tela_vitoria.hide()
 	tela_derrota.hide()
+	reiniciar.hide()
+	voltar_ao_menu.hide()
 
 func _on_progresso_alterado(dist_atual: float, dist_total: float) -> void:
 	medidor_distancia.max_value = dist_total
@@ -19,8 +26,21 @@ func _on_progresso_alterado(dist_atual: float, dist_total: float) -> void:
 
 func _on_partida_ganha() -> void:
 	tela_vitoria.show()
+	reiniciar.show()
+	voltar_ao_menu.show()
 	await get_tree().process_frame 
+	Engine.time_scale = 0.0
 	mensagem_vitoria.text = "Você venceu!\nPontos: " + str(PontosGlobal.get_points())
 
 func _on_partida_perdida() -> void:
 	tela_derrota.show()
+	reiniciar.show()
+	voltar_ao_menu.show()
+	Engine.time_scale = 0.0
+	
+func _on_reiniciar_pressed():
+	Engine.time_scale = 1.0
+	get_tree().reload_current_scene()
+
+func _on_menu_backPressed():
+	get_tree().change_scene_to_file("res://Cenas/Main Menu/selecao_fase.tscn")

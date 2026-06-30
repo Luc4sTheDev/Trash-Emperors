@@ -6,6 +6,8 @@ signal gas_change(new_gas: float)
 var pontos: int = 0
 @onready var label: Label = $"../UI/Pontuacao/Label"
 @onready var reciclar: Control = $"../UI/Reciclar"
+@onready var sprite_caminhao: Sprite2D = $spriteCaminhao
+var tamanho_fixo = Vector2(64.0, 128.0)
 
 @export var front_speed : float = 600.0
 @export var acceleration : float = 400.0
@@ -38,9 +40,18 @@ var lixo_atual: Area2D = null
 var gasolina_atual: Area2D = null
 
 @onready var detector_objetos: Area2D = $DetectorObjetos
+@onready var icone_perigo = $Teste/IconePerigo
+
+var perigos_no_radar := 0
 
 
 func _ready() -> void:
+	if InventarioGlobal.skin_atual != null:
+		sprite_caminhao.texture = InventarioGlobal.skin_atual.textura_caminhao
+		
+		var tamanho_da_imagem = sprite_caminhao.texture.get_size()	
+		sprite_caminhao.scale = tamanho_fixo / tamanho_da_imagem
+		
 	current_speed = move_toward(current_speed, front_speed , default_speed)
 	detector_objetos.area_entered.connect(_on_gasolina_teste_area_entered)
 	detector_objetos.area_entered.connect(_on_lixo_area_entered)
@@ -100,7 +111,7 @@ func gas_system(delta):
 	if not GerenciadorPartida.partida_ativa: 
 		return
 
-	current_gas -= 1.0 * delta
+	current_gas -= 2.5 * delta
 	gas_change.emit(current_gas)
 	if current_gas <= 0 and not out_of_gas:
 		current_gas = 0
@@ -150,3 +161,17 @@ func somarPontosGlobal():
 	if not GerenciadorPartida.partida_ativa and GerenciadorPartida.partida_vencida:
 		PontosGlobal.add_points(pontos)
 		print("Pontuacao ", PontosGlobal.get_points())
+
+
+func _on_sensor_perigo_body_entered(body):
+	if body.is_in_group("inimigos"):
+		perigos_no_radar += 1
+		icone_perigo.visible = true
+
+func _on_sensor_perigo_body_exited(body):
+	if body.is_in_group("inimigos"):
+		perigos_no_radar -= 1
+		
+		if perigos_no_radar <= 0:
+			perigos_no_radar = 0
+			icone_perigo.visible = false

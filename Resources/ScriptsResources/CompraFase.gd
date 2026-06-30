@@ -29,5 +29,6 @@ func _on_pressed():
 			dados_da_fase.esta_desbloqueada = true
 			print("comprou")
 			atualizar_visual_botao()
+			ResourceSaver.save(dados_da_fase, dados_da_fase.resource_path)
 		else:
 			print("n tem dinheiro")

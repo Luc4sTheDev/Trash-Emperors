@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c216rw5djid7o"]
+
+[ext_resource type="Script" uid="uid://cssrd8gxswj6q" path="res://inimigos/carro_inimigo.gd" id="1_6ixo8"]
+[ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="2_sqt03"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(322, 680)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8i1l6"]
+radius = 388.11627
+
+[node name="CarroInimigo" type="CharacterBody2D" unique_id=710940205 groups=["inimigos"]]
+scale = Vector2(0.23999903, 0.23999903)
+script = ExtResource("1_6ixo8")
+velocidade_lateral = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1153089860]
+texture = ExtResource("2_sqt03")
+
+[node name="PhysicsCollider" type="CollisionShape2D" parent="." unique_id=1151499982]
+position = Vector2(2, -11)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1307737433]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1347839537]
+position = Vector2(6, -8.5)
+shape = SubResource("CircleShape2D_8i1l6")
+debug_color = Color(0.66011196, 0.0045055435, 0.18881553, 0.41960785)
+
+[node name="RaycastDireita" type="RayCast2D" parent="." unique_id=1270003529]
+target_position = Vector2(391.66827, -4.1666837)
+
+[node name="RaycastEsquerda" type="RayCast2D" parent="." unique_id=695177040]
+scale = Vector2(3.1344945, 1)
+target_position = Vector2(-120.9663, -4.1666837)

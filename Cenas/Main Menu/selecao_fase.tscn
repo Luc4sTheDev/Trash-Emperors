@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dv5eu4rww8mle" path="res://Scripts/UI/pontuacao_do_jogador.gd" id="1_1i438"]
 [ext_resource type="Script" uid="uid://caifqkyc0ua2a" path="res://Resources/ScriptsResources/CompraFase.gd" id="1_fyks6"]
-[ext_resource type="Resource" uid="uid://dqmx3rmogfwby" path="res://Resources/Teste.tres" id="2_slgbb"]
+[ext_resource type="Script" uid="uid://dub1rana46ylc" path="res://Script Fases/scriptSelecaoFase.gd" id="1_xpny5"]
+[ext_resource type="Resource" uid="uid://bfytfgg5q40wk" path="res://Resources/Teste.tres" id="2_slgbb"]
 [ext_resource type="Texture2D" uid="uid://b6iwlx586ew67" path="res://PlaceHolder/Cadeado.png" id="4_v7667"]
 
 [node name="SelecaoFase" type="CanvasLayer" unique_id=76733478]
+script = ExtResource("1_xpny5")
 
 [node name="PontuacaoDoJogador" type="Label" parent="." unique_id=1777559694]
 offset_left = 1022.00006
@@ -47,4 +49,21 @@ position = Vector2(31.818186, 32.57576)
 scale = Vector2(0.26821095, 0.26821095)
 texture = ExtResource("4_v7667")
 
+[node name="Voltar" type="Button" parent="." unique_id=266539001]
+offset_left = 36.0
+offset_top = 562.00006
+offset_right = 91.0
+offset_bottom = 593.00006
+scale = Vector2(2.0906966, 2.0906966)
+text = "Voltar"
+
+[node name="Label" type="Label" parent="." unique_id=1145764251]
+offset_left = 403.00003
+offset_top = 36.0
+offset_right = 528.0
+offset_bottom = 59.0
+scale = Vector2(2.6399999, 2.6399999)
+text = "Seletor de Fases"
+
 [connection signal="pressed" from="Fase1" to="Fase1" method="_on_pressed"]
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bltoa16vtuw8q"]
+
+[ext_resource type="Script" uid="uid://dv5eu4rww8mle" path="res://Scripts/UI/pontuacao_do_jogador.gd" id="1_g14co"]
+[ext_resource type="Script" uid="uid://cdolynu8dhra3" path="res://Script Fases/scriptSelecaoCaminhao.gd" id="1_ughnc"]
+[ext_resource type="Script" uid="uid://exbcvtu0816i" path="res://Resources/ScriptsResources/CompraCaminhao.gd" id="3_68cc6"]
+[ext_resource type="Resource" uid="uid://dvfhywlv6ybbo" path="res://Resources/ScriptsResources/SkinDefault.tres" id="4_arybr"]
+[ext_resource type="Texture2D" uid="uid://b6iwlx586ew67" path="res://PlaceHolder/Cadeado.png" id="5_j1vvx"]
+[ext_resource type="Script" uid="uid://cg86ip1yyi1b0" path="res://Resources/ScriptsResources/CompraCaminhao02.gd" id="6_c38pr"]
+[ext_resource type="Resource" uid="uid://bc2ps7tmmi3kc" path="res://Resources/ScriptsResources/SkinTeste02.tres" id="7_jdkxi"]
+
+[node name="Seletor Caminhao" type="CanvasLayer" unique_id=1369178027]
+script = ExtResource("1_ughnc")
+
+[node name="Label" type="Label" parent="." unique_id=653592234]
+offset_left = 375.00003
+offset_top = 44.0
+offset_right = 536.0
+offset_bottom = 67.0
+scale = Vector2(2.30206, 2.30206)
+text = "Seletor de Caminhão"
+
+[node name="PontosDeJogador" type="Label" parent="." unique_id=53968633]
+offset_left = 995.0001
+offset_top = 36.0
+offset_right = 1035.0001
+offset_bottom = 59.0
+scale = Vector2(2.5999997, 2.5999997)
+script = ExtResource("1_g14co")
+
+[node name="Voltar" type="Button" parent="." unique_id=25200018]
+offset_left = 36.0
+offset_top = 556.0
+offset_right = 91.0
+offset_bottom = 587.0
+scale = Vector2(2.32, 2.32)
+text = "Voltar"
+
+[node name="Caminhao01" type="Button" parent="." unique_id=1343292781]
+offset_left = 180.0
+offset_top = 254.0
+offset_right = 281.0
+offset_bottom = 355.0
+scale = Vector2(1.52, 1.52)
+script = ExtResource("3_68cc6")
+dados_caminhao = ExtResource("4_arybr")
+
+[node name="Cadeado" type="Sprite2D" parent="Caminhao01" unique_id=319962689]
+position = Vector2(51.381973, 49.48828)
+scale = Vector2(0.41244638, 0.41244638)
+texture = ExtResource("5_j1vvx")
+
+[node name="NomeCaminhao" type="Label" parent="Caminhao01" unique_id=581156878]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 109.0
+offset_right = 72.0
+offset_bottom = 132.0
+text = "AAAA"
+
+[node name="Preco" type="Label" parent="Caminhao01" unique_id=293869235]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 136.0
+offset_right = 70.0
+offset_bottom = 159.0
+
+[node name="Caminhao02" type="Button" parent="." unique_id=397337861]
+offset_left = 394.0
+offset_top = 254.0
+offset_right = 495.0
+offset_bottom = 355.0
+scale = Vector2(1.52, 1.52)
+script = ExtResource("6_c38pr")
+dados_caminhao = ExtResource("7_jdkxi")
+
+[node name="NomeCaminhao" type="Label" parent="Caminhao02" unique_id=701356237]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 109.0
+offset_right = 72.0
+offset_bottom = 132.0
+text = "AAAA"
+
+[node name="Preco" type="Label" parent="Caminhao02" unique_id=15280014]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 136.0
+offset_right = 70.0
+offset_bottom = 159.0
+
+[node name="Cadeado2" type="Sprite2D" parent="Caminhao02" unique_id=1387258917]
+position = Vector2(51, 49.48828)
+scale = Vector2(0.41244638, 0.41244638)
+texture = ExtResource("5_j1vvx")
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
+[connection signal="pressed" from="Caminhao01" to="Caminhao01" method="_on_pressed"]
+[connection signal="pressed" from="Caminhao02" to="Caminhao02" method="_on_pressed"]

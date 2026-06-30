@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SkinData" format=3 uid="uid://cphjnt5bo335s"]
+
+[ext_resource type="Texture2D" uid="uid://b77ovupvklp8b" path="res://PlaceHolder/animaldarua.jpg" id="1_cmob1"]
+[ext_resource type="Script" uid="uid://dkj66c83fpgd" path="res://Resources/ScriptsResources/Skins.gd" id="1_u2e3t"]
+
+[resource]
+script = ExtResource("1_u2e3t")
+nome_da_skin = "Teste"
+preco = 1000
+esta_desbloqueada = true
+textura_caminhao = ExtResource("1_cmob1")
+icone_loja = ExtResource("1_cmob1")

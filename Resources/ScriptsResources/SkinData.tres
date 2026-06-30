@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SkinData" format=3 uid="uid://nlys78ws3j6q"]
+
+[ext_resource type="Script" uid="uid://dkj66c83fpgd" path="res://Resources/ScriptsResources/Skins.gd" id="1_y37bo"]
+
+[resource]
+script = ExtResource("1_y37bo")
