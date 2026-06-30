@@ -6,8 +6,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(322, 680)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8i1l6"]
-radius = 388.11627
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ixo8"]
+size = Vector2(26.88173, 48.118294)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
+radius = 445.36765
 
 [node name="CarroInimigo" type="CharacterBody2D" unique_id=710940205 groups=["inimigos"]]
 scale = Vector2(0.23999903, 0.23999903)
@@ -21,11 +24,12 @@ texture = ExtResource("2_sqt03")
 position = Vector2(2, -11)
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1307737433]
+[node name="Hitbox" type="Area2D" parent="." unique_id=1307737433]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1347839537]
-position = Vector2(6, -8.5)
-shape = SubResource("CircleShape2D_8i1l6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1347839537]
+position = Vector2(4.1666813, -6.2500176)
+scale = Vector2(15.500059, 15.500059)
+shape = SubResource("RectangleShape2D_6ixo8")
 debug_color = Color(0.66011196, 0.0045055435, 0.18881553, 0.41960785)
 
 [node name="RaycastDireita" type="RayCast2D" parent="." unique_id=1270003529]
@@ -34,3 +38,8 @@ target_position = Vector2(391.66827, -4.1666837)
 [node name="RaycastEsquerda" type="RayCast2D" parent="." unique_id=695177040]
 scale = Vector2(3.1344945, 1)
 target_position = Vector2(-120.9663, -4.1666837)
+
+[node name="DetectorDeCarro" type="Area2D" parent="." unique_id=273021619]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorDeCarro" unique_id=1042721223]
+shape = SubResource("CircleShape2D_57qmd")

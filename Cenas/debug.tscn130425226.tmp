@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://denrdfjgqn16r"]
+
+[ext_resource type="Script" uid="uid://bgqxkuyawkhsa" path="res://Script Fases/debugTeste.gd" id="1_iqurr"]
+[ext_resource type="Script" uid="uid://ca3bjbj6o7mjs" path="res://Scripts/Câmera/camera_do_jogo.gd" id="1_roq5e"]
+[ext_resource type="PackedScene" uid="uid://dcfqfw4mmc4mr" path="res://Trucks/caminhao_teste.tscn" id="1_wohp6"]
+[ext_resource type="PackedScene" uid="uid://nqjwfvs6511b" path="res://Cenas/Prefabs/ui.tscn" id="4_iqurr"]
+[ext_resource type="PackedScene" uid="uid://bj60seuubp2ws" path="res://Cenas/GasolinaGalao.tscn" id="5_iqurr"]
+[ext_resource type="PackedScene" uid="uid://dmxu0qr3hqdvg" path="res://Cenas/Prefabs/Lixo.tscn" id="6_h3cfr"]
+[ext_resource type="Script" uid="uid://nhf6jsucnrhl" path="res://Scripts/Objetos/lixo.gd" id="6_viufs"]
+[ext_resource type="Texture2D" uid="uid://b2s8yh14fxcfd" path="res://Artes das Fases/Nova Cruz/ParallaxDireito.png" id="8_m4wth"]
+[ext_resource type="Texture2D" uid="uid://nqqjbc0ynkeb" path="res://Artes das Fases/Nova Cruz/ParallaxEsquerdo.png" id="9_x1u25"]
+[ext_resource type="Texture2D" uid="uid://cn7mb7filspqe" path="res://Artes das Fases/Nova Cruz/Estrada.png" id="10_8i1l6"]
+[ext_resource type="Script" uid="uid://vwga0ucsf0ex" path="res://inimigos/spawner_inimigos.gd" id="11_8i1l6"]
+[ext_resource type="PackedScene" uid="uid://c216rw5djid7o" path="res://inimigos/carro_inimigo.tscn" id="11_x1u25"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6rdc"]
+load_path = "res://.godot/imported/Road_Side_02.png-a7c26d315bd5e694d389c6f29a60e352.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fetcc"]
+size = Vector2(99, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(302, 38514)
+
+[node name="Node2D" type="Node2D" unique_id=524872734]
+script = ExtResource("1_iqurr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1209512541 node_paths=PackedStringArray("jogador")]
+position = Vector2(2525, 1691)
+rotation = -1.578124
+position_smoothing_enabled = true
+script = ExtResource("1_roq5e")
+jogador = NodePath("../CaminhaoTeste")
+deadzone_y = -40.0
+
+[node name="CaminhaoTeste" parent="." unique_id=1732026516 instance=ExtResource("1_wohp6")]
+position = Vector2(2525, 1691)
+rotation = -1.578124
+
+[node name="UI" parent="." unique_id=2043441723 instance=ExtResource("4_iqurr")]
+
+[node name="gasolinaTeste" parent="." unique_id=187911406 instance=ExtResource("5_iqurr")]
+position = Vector2(2481, 775)
+
+[node name="Lixo" parent="." unique_id=849377789 instance=ExtResource("6_h3cfr")]
+position = Vector2(2515, 235)
+
+[node name="Lixo5" type="Area2D" parent="." unique_id=1547418889 groups=["lixo"]]
+z_index = 1
+position = Vector2(2515, -347)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo5" unique_id=2129757867]
+z_index = 1
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = SubResource("CompressedTexture2D_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo5" unique_id=1363906534]
+z_index = 1
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="Lixo6" type="Area2D" parent="." unique_id=2095628827 groups=["lixo"]]
+z_index = 1
+position = Vector2(2515, -844)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo6" unique_id=1504336589]
+z_index = 1
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = SubResource("CompressedTexture2D_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo6" unique_id=768209968]
+z_index = 1
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="Lixo7" type="Area2D" parent="." unique_id=1550911850 groups=["lixo"]]
+z_index = 1
+position = Vector2(2515, -1236)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo7" unique_id=1894083436]
+z_index = 1
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = SubResource("CompressedTexture2D_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo7" unique_id=1528996312]
+z_index = 1
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="Lixo8" type="Area2D" parent="." unique_id=1742005489 groups=["lixo"]]
+z_index = 1
+position = Vector2(2515, -1535)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo8" unique_id=816424587]
+z_index = 1
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = SubResource("CompressedTexture2D_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo8" unique_id=1903370359]
+z_index = 1
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="Lixo9" type="Area2D" parent="." unique_id=1107670779 groups=["lixo"]]
+z_index = 1
+position = Vector2(2515, -1842)
+scale = Vector2(1.014415, 1)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_viufs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lixo9" unique_id=1638219138]
+z_index = 1
+position = Vector2(40.417377, 29)
+scale = Vector2(0.5857569, 0.5857569)
+texture = SubResource("CompressedTexture2D_q6rdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lixo9" unique_id=261340695]
+z_index = 1
+position = Vector2(39.5, 29)
+shape = SubResource("RectangleShape2D_fetcc")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=355467779]
+
+[node name="Direita" type="ParallaxLayer" parent="ParallaxBackground" unique_id=310874114]
+position = Vector2(2528, 1237)
+scale = Vector2(1.4000001, 1.4000001)
+motion_mirroring = Vector2(0, 580)
+
+[node name="Direita" type="Sprite2D" parent="ParallaxBackground/Direita" unique_id=705731412]
+texture = ExtResource("8_m4wth")
+region_rect = Rect2(3000, 3000, 0, 0)
+
+[node name="Esquerda" type="ParallaxLayer" parent="ParallaxBackground" unique_id=646045044]
+position = Vector2(2528, 1237)
+scale = Vector2(1.4000001, 1.4000001)
+motion_mirroring = Vector2(0, 580)
+
+[node name="Esquerda" type="Sprite2D" parent="ParallaxBackground/Esquerda" unique_id=295865470]
+texture = ExtResource("9_x1u25")
+
+[node name="Estrada" type="ParallaxLayer" parent="ParallaxBackground" unique_id=600317221]
+position = Vector2(2528, 1237)
+scale = Vector2(1.4138064, 1.4000001)
+motion_mirroring = Vector2(0, 580)
+
+[node name="Road" type="Sprite2D" parent="ParallaxBackground/Estrada" unique_id=159555901]
+texture = ExtResource("10_8i1l6")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=168523885 groups=["Parede"]]
+position = Vector2(2678, 1669)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1099124308]
+position = Vector2(156, -19225)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1808015506 groups=["Parede"]]
+position = Vector2(2073, 1669)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1478355929]
+position = Vector2(156, -19225)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="SpawnerInimigos" type="Node2D" parent="." unique_id=769705673 node_paths=PackedStringArray("jogador")]
+script = ExtResource("11_8i1l6")
+cena_inimigo = ExtResource("11_x1u25")
+jogador = NodePath("../CaminhaoTeste")
+tempo_spawn = 5.5
+faixas = Array[float]([-50.0, 25.0])
+
+[connection signal="area_entered" from="gasolinaTeste" to="CaminhaoTeste" method="_on_gasolina_teste_area_entered"]
+[connection signal="area_entered" from="Lixo" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_entered" from="Lixo5" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_entered" from="Lixo6" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_entered" from="Lixo7" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_entered" from="Lixo8" to="CaminhaoTeste" method="_on_lixo_area_entered"]
+[connection signal="area_entered" from="Lixo9" to="CaminhaoTeste" method="_on_lixo_area_entered"]

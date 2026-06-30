@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="3_dc4nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv004"]
-size = Vector2(183, 129)
+size = Vector2(148.68399, 129)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ydee"]
 radius = 10.850695
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ydee"]
-size = Vector2(238, 147)
+size = Vector2(173.88214, 135.29361)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(1278.4198, 230.26285)
@@ -28,7 +28,8 @@ scale = Vector2(0.3261048, 0.3261048)
 texture = ExtResource("2_7ydee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=991320497]
-position = Vector2(5.5, -0.5)
+position = Vector2(20.39471, -0.49999964)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_dv004")
 
 [node name="DetectorObjetos" type="Area2D" parent="." unique_id=1768694386]
@@ -44,9 +45,10 @@ shape = SubResource("CircleShape2D_7ydee")
 radius = 128.52
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=775838433]
+scale = Vector2(0.8947388, 0.8947388)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=40426351]
-position = Vector2(-1, 1.5)
+position = Vector2(31.058928, -1.4705813)
 shape = SubResource("RectangleShape2D_7ydee")
 debug_color = Color(0.9979833, 0, 0.16405195, 0.41960785)
 

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name carro_transito
 
 enum TipoComportamento {
 	VAI_RETO,
@@ -7,14 +8,16 @@ enum TipoComportamento {
 
 @export var velocidade := 250.0
 @export var velocidade_lateral := 120.0
+@export var margem_parede := 25.0 
 
 var comportamento: TipoComportamento
 var jogador: Node2D = null
 var alvo_x := 0.0
 var mudando_faixa := false
 
-@onready var ray_esquerda = $RaycastDireita
-@onready var ray_direita = $RaycastEsquerda
+@onready var ray_esquerda = $RaycastEsquerda
+@onready var ray_direita = $RaycastDireita
+@onready var detector_de_carro: Area2D = $DetectorDeCarro
 
 func inicializar(ref_jogador: Node2D, pos_inicial: Vector2, tipo_escolhido: TipoComportamento):
 	jogador = ref_jogador
@@ -30,7 +33,21 @@ func _physics_process(delta):
 	if jogador == null:
 		return
 
-	velocity.y = -velocidade
+	var aceleracao_fuga = 0.0
+
+	# LÓGICA DO DETECTOR DE CARROS (Area2D)
+	var carros_proximos = detector_de_carro.get_overlapping_bodies()
+	
+	for outro_carro in carros_proximos:
+		# Verifica se não é ele mesmo e se é um inimigo
+		if outro_carro != self and outro_carro.is_in_group("inimigos"):
+			# Na Godot, o Y cresce para baixo. Então se o Y do outro carro for maior, 
+			# significa que ele está atrás do nosso carro.
+			if outro_carro.global_position.y > global_position.y:
+				aceleracao_fuga = 150.0
+				break # Já achou alguém atrás, pode parar de procurar e acelerar
+
+	velocity.y = -(velocidade + aceleracao_fuga)
 
 	if comportamento == TipoComportamento.FECHA_JOGADOR and not mudando_faixa:
 		var distancia_y = jogador.global_position.y - global_position.y
@@ -71,6 +88,17 @@ func verificar_obstaculo(raycast: RayCast2D) -> bool:
 	if raycast.is_colliding():
 		var colisor = raycast.get_collider()
 		if colisor:
-			if colisor.is_in_group("parede") or colisor.is_in_group("inimigo"):
-				return true
+			if colisor.is_in_group("Parede"):
+				var ponto_colisao = raycast.get_collision_point()
+				var distancia_da_parede = abs(global_position.x - ponto_colisao.x)
+				
+				if distancia_da_parede <= margem_parede:
+					return true
+				else:
+					return false 
+					
+			elif colisor.is_in_group("inimigos"):
+				return true 
 	return false
+	
+	

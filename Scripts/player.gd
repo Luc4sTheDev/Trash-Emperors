@@ -56,6 +56,7 @@ func _ready() -> void:
 	detector_objetos.area_entered.connect(_on_gasolina_teste_area_entered)
 	detector_objetos.area_entered.connect(_on_lixo_area_entered)
 	
+	
 	label.text = " " + str(pontos)
 	
 	GerenciadorPartida.iniciar_partida()
@@ -162,7 +163,6 @@ func somarPontosGlobal():
 		PontosGlobal.add_points(pontos)
 		print("Pontuacao ", PontosGlobal.get_points())
 
-
 func _on_sensor_perigo_body_entered(body):
 	if body.is_in_group("inimigos"):
 		perigos_no_radar += 1
@@ -175,3 +175,10 @@ func _on_sensor_perigo_body_exited(body):
 		if perigos_no_radar <= 0:
 			perigos_no_radar = 0
 			icone_perigo.visible = false
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	var atacante = area.owner
+	if atacante is carro_transito and atacante != self:
+		if "Hitbox" in area.name:
+			morrer()
