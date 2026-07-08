@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkinData" format=3 uid="uid://b52qupuinpd3u"]
+
+[ext_resource type="Script" uid="uid://dkj66c83fpgd" path="res://Resources/ScriptsResources/Skins.gd" id="1_d0tnu"]
+[ext_resource type="Texture2D" uid="uid://gcmdawqoidee" path="res://Artes Oficiais/Artes dos Caminhoes/CaminhaoDefault.png" id="1_qwxgq"]
+[ext_resource type="Texture2D" uid="uid://ckqo6hrnk8q6r" path="res://Artes Oficiais/Skins/Caminhao1.png" id="3_0yg6a"]
+
+[resource]
+script = ExtResource("1_d0tnu")
+nome_da_skin = "Caminhão Verde"
+esta_desbloqueada = true
+textura_caminhao = ExtResource("3_0yg6a")
+icone_loja = ExtResource("1_qwxgq")
+metadata/_custom_type_script = "uid://dkj66c83fpgd"

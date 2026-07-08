@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://dcfqfw4mmc4mr"]
 
 [ext_resource type="Script" uid="uid://7hffxe3xibkx" path="res://Scripts/player.gd" id="1_7ydee"]
-[ext_resource type="Texture2D" uid="uid://dwg1hbmf7i0tc" path="res://PlaceHolder/Car.png" id="2_7ydee"]
-[ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="3_dc4nm"]
+[ext_resource type="Texture2D" uid="uid://ckqo6hrnk8q6r" path="res://Artes Oficiais/Skins/Caminhao1.png" id="2_dc4nm"]
+[ext_resource type="Texture2D" uid="uid://c5wu4fkulqcg1" path="res://Artes Oficiais/UI/AvisoDeObstaculo.png" id="3_dc4nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv004"]
-size = Vector2(148.68399, 129)
+size = Vector2(148.68399, 89.47359)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ydee"]
 radius = 10.850695
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ydee"]
-size = Vector2(173.88214, 135.29361)
+size = Vector2(90.05893, 105.88196)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(1278.4198, 230.26285)
+size = Vector2(839.2097, 230.26285)
 
 [node name="CaminhaoTeste" type="CharacterBody2D" unique_id=1732026516 node_paths=PackedStringArray("hurt_box")]
 scale = Vector2(0.76000124, 0.76000124)
@@ -23,13 +23,14 @@ front_speed = 800.0
 hurt_box = NodePath("Hurtbox")
 
 [node name="spriteCaminhao" type="Sprite2D" parent="." unique_id=526977560]
+position = Vector2(-12.675875, 1.3157892)
 rotation = 1.5707964
-scale = Vector2(0.3261048, 0.3261048)
-texture = ExtResource("2_7ydee")
+scale = Vector2(0.15500627, 0.15500627)
+texture = ExtResource("2_dc4nm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=991320497]
-position = Vector2(20.39471, -0.49999964)
-scale = Vector2(0.99999964, 0.99999964)
+position = Vector2(20.394701, 5.6467456e-06)
+scale = Vector2(0.9999993, 0.9999993)
 shape = SubResource("RectangleShape2D_dv004")
 
 [node name="DetectorObjetos" type="Area2D" parent="." unique_id=1768694386]
@@ -48,15 +49,15 @@ radius = 128.52
 scale = Vector2(0.8947388, 0.8947388)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=40426351]
-position = Vector2(31.058928, -1.4705813)
+position = Vector2(72.970535, 1.4705827)
 shape = SubResource("RectangleShape2D_7ydee")
 debug_color = Color(0.9979833, 0, 0.16405195, 0.41960785)
 
 [node name="SensorPerigo" type="Area2D" parent="." unique_id=1088596310]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SensorPerigo" unique_id=23563026]
-position = Vector2(738.1567, 7.2368164)
-scale = Vector2(0.9999994, 0.9999994)
+position = Vector2(518.5517, 7.236815)
+scale = Vector2(0.9999993, 0.9999993)
 shape = SubResource("RectangleShape2D_g4v7s")
 debug_color = Color(0.8540604, 0.36944702, 3.85046e-07, 0.41960785)
 
@@ -64,8 +65,8 @@ debug_color = Color(0.8540604, 0.36944702, 3.85046e-07, 0.41960785)
 
 [node name="IconePerigo" type="Sprite2D" parent="Teste" unique_id=2014180420]
 visible = false
-position = Vector2(566, 63)
-scale = Vector2(0.43475735, 0.43475735)
+position = Vector2(947, 38)
+scale = Vector2(1.5381998, 1.5381998)
 texture = ExtResource("3_dc4nm")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

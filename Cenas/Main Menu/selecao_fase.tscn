@@ -3,36 +3,49 @@
 [ext_resource type="Script" uid="uid://dv5eu4rww8mle" path="res://Scripts/UI/pontuacao_do_jogador.gd" id="1_1i438"]
 [ext_resource type="Script" uid="uid://caifqkyc0ua2a" path="res://Resources/ScriptsResources/CompraFase.gd" id="1_fyks6"]
 [ext_resource type="Script" uid="uid://dub1rana46ylc" path="res://Script Fases/scriptSelecaoFase.gd" id="1_xpny5"]
-[ext_resource type="Resource" uid="uid://bfytfgg5q40wk" path="res://Resources/Teste.tres" id="2_slgbb"]
+[ext_resource type="Texture2D" uid="uid://bdj8g1lwr3k2k" path="res://Artes Oficiais/Menu/Sky.jpg" id="2_5teks"]
 [ext_resource type="Texture2D" uid="uid://b6iwlx586ew67" path="res://PlaceHolder/Cadeado.png" id="4_v7667"]
+[ext_resource type="Resource" uid="uid://j87fw3lth3vv" path="res://Resources/Fases Oficiais/Lagoa_Pedra.tres" id="5_t332n"]
+[ext_resource type="Texture2D" uid="uid://di4jrlnn760pe" path="res://Artes Oficiais/Menu/SeletorFases.png" id="7_0qtxo"]
+[ext_resource type="Script" uid="uid://bt20sseqdleyg" path="res://Resources/ScriptsResources/CompraFase2.gd" id="7_o4rko"]
+[ext_resource type="Texture2D" uid="uid://oni18dvckl0e" path="res://Artes Oficiais/Menu/SetaVoltar.png" id="7_t332n"]
+[ext_resource type="Script" uid="uid://b0n8omr4dqos1" path="res://Resources/ScriptsResources/CompraFase3.gd" id="8_d3mg2"]
+[ext_resource type="Resource" uid="uid://cx16tqwj7ddau" path="res://Resources/Fases Oficiais/SantoAntoin.tres" id="8_ryts7"]
+[ext_resource type="Resource" uid="uid://cluh4ebdkud7d" path="res://Resources/Fases Oficiais/NewCross.tres" id="10_mrqsa"]
 
 [node name="SelecaoFase" type="CanvasLayer" unique_id=76733478]
 script = ExtResource("1_xpny5")
 
+[node name="Background" type="Sprite2D" parent="." unique_id=248104022]
+position = Vector2(1049, 534)
+scale = Vector2(0.67834634, 0.67834634)
+texture = ExtResource("2_5teks")
+
 [node name="PontuacaoDoJogador" type="Label" parent="." unique_id=1777559694]
-offset_left = 1022.00006
-offset_top = 27.0
-offset_right = 1062.0
-offset_bottom = 50.0
-scale = Vector2(2.1599998, 2.1599998)
+offset_left = 1613.9998
+offset_top = 114.0
+offset_right = 1653.9998
+offset_bottom = 137.0
+scale = Vector2(5.4000006, 5.4000006)
 script = ExtResource("1_1i438")
 
 [node name="Fase1" type="Button" parent="." unique_id=607633646]
-offset_left = 62.0
-offset_top = 199.0
-offset_right = 127.15152
-offset_bottom = 266.80304
-scale = Vector2(2.6399999, 2.6399999)
+offset_left = 419.0
+offset_top = 408.0
+offset_right = 484.1515
+offset_bottom = 475.80304
+scale = Vector2(3.9343112, 3.9343112)
 script = ExtResource("1_fyks6")
-dados_da_fase = ExtResource("2_slgbb")
+dados_da_fase = ExtResource("5_t332n")
 
 [node name="NomeFase" type="Label" parent="Fase1" unique_id=605938199]
 layout_mode = 0
-offset_left = 17.803032
-offset_top = 70.07576
-offset_right = 68.560616
-offset_bottom = 93.07576
+offset_left = -5.5918303
+offset_top = 68.11866
+offset_right = 50.40817
+offset_bottom = 91.11866
 scale = Vector2(0.590909, 0.590909)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "aaaaaa"
 
 [node name="Preco" type="Label" parent="Fase1" unique_id=1807001432]
@@ -42,6 +55,7 @@ offset_top = 84.848495
 offset_right = 62.909092
 offset_bottom = 107.848495
 scale = Vector2(0.63636327, 0.63636327)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 horizontal_alignment = 1
 
 [node name="Cadeado" type="Sprite2D" parent="Fase1" unique_id=594420939]
@@ -49,21 +63,95 @@ position = Vector2(31.818186, 32.57576)
 scale = Vector2(0.26821095, 0.26821095)
 texture = ExtResource("4_v7667")
 
-[node name="Voltar" type="Button" parent="." unique_id=266539001]
-offset_left = 36.0
-offset_top = 562.00006
-offset_right = 91.0
-offset_bottom = 593.00006
-scale = Vector2(2.0906966, 2.0906966)
-text = "Voltar"
+[node name="Fase2" type="Button" parent="." unique_id=1898956039]
+offset_left = 842.0
+offset_top = 408.0
+offset_right = 907.1515
+offset_bottom = 475.80304
+scale = Vector2(3.9343112, 3.9343112)
+script = ExtResource("7_o4rko")
+dados_da_fase = ExtResource("8_ryts7")
 
-[node name="Label" type="Label" parent="." unique_id=1145764251]
-offset_left = 403.00003
-offset_top = 36.0
-offset_right = 528.0
-offset_bottom = 59.0
-scale = Vector2(2.6399999, 2.6399999)
-text = "Seletor de Fases"
+[node name="NomeFase" type="Label" parent="Fase2" unique_id=1096673651]
+layout_mode = 0
+offset_left = -1.2708702
+offset_top = 68.11866
+offset_right = 54.72913
+offset_bottom = 91.11866
+scale = Vector2(0.590909, 0.590909)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "aaaaaa"
+
+[node name="Preco" type="Label" parent="Fase2" unique_id=1895642848]
+layout_mode = 0
+offset_left = 15.909092
+offset_top = 84.848495
+offset_right = 62.909092
+offset_bottom = 107.848495
+scale = Vector2(0.63636327, 0.63636327)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="Cadeado" type="Sprite2D" parent="Fase2" unique_id=1067377049]
+position = Vector2(31.818186, 32.57576)
+scale = Vector2(0.26821095, 0.26821095)
+texture = ExtResource("4_v7667")
+
+[node name="Fase3" type="Button" parent="." unique_id=1198677068]
+offset_left = 1255.0
+offset_top = 408.0
+offset_right = 1320.1515
+offset_bottom = 475.80304
+scale = Vector2(3.9343112, 3.9343112)
+script = ExtResource("8_d3mg2")
+dados_da_fase = ExtResource("10_mrqsa")
+
+[node name="NomeFase" type="Label" parent="Fase3" unique_id=1655369490]
+layout_mode = 0
+offset_left = 8.896093
+offset_top = 68.11866
+offset_right = 64.896095
+offset_bottom = 91.11866
+scale = Vector2(0.590909, 0.590909)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "aaaaaa"
+
+[node name="Preco" type="Label" parent="Fase3" unique_id=1355330712]
+layout_mode = 0
+offset_left = 15.909092
+offset_top = 84.848495
+offset_right = 62.909092
+offset_bottom = 107.848495
+scale = Vector2(0.63636327, 0.63636327)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="Cadeado" type="Sprite2D" parent="Fase3" unique_id=1019957680]
+position = Vector2(31.818186, 32.57576)
+scale = Vector2(0.26821095, 0.26821095)
+texture = ExtResource("4_v7667")
+
+[node name="Voltar" type="Button" parent="." unique_id=266539001]
+offset_left = 81.0
+offset_top = 78.99999
+offset_right = 126.97278
+offset_bottom = 109.99999
+scale = Vector2(4.8506966, 4.8506966)
+text = "
+"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Voltar" unique_id=122713160]
+position = Vector2(24.53256, 11.338578)
+scale = Vector2(0.20836106, 0.20836106)
+texture = ExtResource("7_t332n")
+
+[node name="Label" type="Sprite2D" parent="." unique_id=1358448221]
+position = Vector2(989, 213.00003)
+scale = Vector2(0.54211205, 0.54211205)
+texture = ExtResource("7_0qtxo")
 
 [connection signal="pressed" from="Fase1" to="Fase1" method="_on_pressed"]
+[connection signal="pressed" from="Fase2" to="Fase2" method="_on_pressed"]
+[connection signal="pressed" from="Fase3" to="Fase3" method="_on_pressed"]
 [connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

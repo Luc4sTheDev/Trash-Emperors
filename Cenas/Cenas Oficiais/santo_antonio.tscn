@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bbornsf7y2kiq"]
+
+[ext_resource type="Script" uid="uid://ca3bjbj6o7mjs" path="res://Scripts/Câmera/camera_do_jogo.gd" id="1_6nf38"]
+[ext_resource type="Script" uid="uid://bgqxkuyawkhsa" path="res://Script Fases/debugTeste.gd" id="1_gl6oy"]
+[ext_resource type="PackedScene" uid="uid://dcfqfw4mmc4mr" path="res://Trucks/caminhao_teste.tscn" id="2_reljr"]
+[ext_resource type="PackedScene" uid="uid://nqjwfvs6511b" path="res://Cenas/Prefabs/ui.tscn" id="3_tngjm"]
+[ext_resource type="Texture2D" uid="uid://dsdmkwivwm2lc" path="res://Artes das Fases/Santo Antonio/ParallaxDireita.png" id="4_fo52k"]
+[ext_resource type="Texture2D" uid="uid://db42246s3lr1d" path="res://Artes das Fases/Santo Antonio/ParallaxEsquerda.png" id="5_gl6oy"]
+[ext_resource type="Texture2D" uid="uid://c1ofxt22dbuj" path="res://Artes das Fases/Santo Antonio/ParallaxEstrada.png" id="6_1gok5"]
+[ext_resource type="PackedScene" uid="uid://b6xafwwljwch1" path="res://Cenas/Prefabs/colisor_parede.tscn" id="7_tngjm"]
+[ext_resource type="PackedScene" uid="uid://b27fam075fosf" path="res://Cenas/colisor_parede_2.tscn" id="8_fo52k"]
+[ext_resource type="PackedScene" uid="uid://dojmyfae3fb06" path="res://Cenas/spawner_inimigos.tscn" id="9_fo52k"]
+[ext_resource type="PackedScene" uid="uid://dxy7n0n0n3id4" path="res://inimigos/ScriptObstaculo/spawner_obstaculos.tscn" id="11_tsy05"]
+[ext_resource type="PackedScene" uid="uid://bfqpgh0mrf8i2" path="res://inimigos/ScriptColetaveis/spawner_coletaveis.tscn" id="12_5oto5"]
+
+[node name="SantoAntonio" type="Node2D" unique_id=155611540]
+script = ExtResource("1_gl6oy")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=951035818 node_paths=PackedStringArray("jogador")]
+position = Vector2(953, 1603.0001)
+zoom = Vector2(1.2, 1.2)
+script = ExtResource("1_6nf38")
+jogador = NodePath("../CaminhaoTeste")
+deadzone_y = -40.0
+
+[node name="CaminhaoTeste" parent="." unique_id=1732026516 instance=ExtResource("2_reljr")]
+position = Vector2(942.99994, 1603)
+rotation = -1.5707964
+
+[node name="UI" parent="." unique_id=2043441723 instance=ExtResource("3_tngjm")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=715774133]
+
+[node name="Direita" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1108676651]
+motion_mirroring = Vector2(0, 1070)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Direita" unique_id=589291711]
+texture = ExtResource("4_fo52k")
+centered = false
+
+[node name="Esquerda" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1590909649]
+motion_mirroring = Vector2(0, 1070)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Esquerda" unique_id=1089887768]
+texture = ExtResource("5_gl6oy")
+centered = false
+
+[node name="Estrada" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1986070090]
+motion_mirroring = Vector2(0, 1070)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Estrada" unique_id=1089617600]
+texture = ExtResource("6_1gok5")
+centered = false
+
+[node name="ColisorParede" parent="." unique_id=137045838 instance=ExtResource("7_tngjm")]
+position = Vector2(533, 2010)
+
+[node name="ColisorParede2" parent="." unique_id=879851484 instance=ExtResource("8_fo52k")]
+position = Vector2(1060, 2018)
+
+[node name="SpawnerInimigos" parent="." unique_id=1168627685 node_paths=PackedStringArray("jogador") instance=ExtResource("9_fo52k")]
+position = Vector2(1060, 2018)
+jogador = NodePath("../CaminhaoTeste")
+
+[node name="spawner_obstaculos" parent="." unique_id=279333276 node_paths=PackedStringArray("jogador") instance=ExtResource("11_tsy05")]
+position = Vector2(953, 1603.0001)
+jogador = NodePath("../CaminhaoTeste")
+
+[node name="spawner_coletaveis" parent="." unique_id=1403084825 node_paths=PackedStringArray("jogador") instance=ExtResource("12_5oto5")]
+position = Vector2(953, 1603.0001)
+jogador = NodePath("../CaminhaoTeste")

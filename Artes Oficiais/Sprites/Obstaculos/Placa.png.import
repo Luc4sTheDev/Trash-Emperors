@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn7mb7filspqe"
-path="res://.godot/imported/Estrada.png-cd92b1b2efd0b8c0e9e2757949efa24e.ctex"
+uid="uid://buet1vkohbct7"
+path="res://.godot/imported/Placa.png-715eef2a2be163d6f91b239fd9d0cd40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artes das Fases/Nova Cruz/Estrada.png"
-dest_files=["res://.godot/imported/Estrada.png-cd92b1b2efd0b8c0e9e2757949efa24e.ctex"]
+source_file="res://Artes Oficiais/Sprites/Obstaculos/Placa.png"
+dest_files=["res://.godot/imported/Placa.png-715eef2a2be163d6f91b239fd9d0cd40.ctex"]
 
 [params]
 

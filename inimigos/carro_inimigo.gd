@@ -28,25 +28,19 @@ func inicializar(ref_jogador: Node2D, pos_inicial: Vector2, tipo_escolhido: Tipo
 func _ready():
 	z_index = 100
 	add_to_group("inimigos")
-
 func _physics_process(delta):
 	if jogador == null:
 		return
 
 	var aceleracao_fuga = 0.0
-
-	# LÓGICA DO DETECTOR DE CARROS (Area2D)
 	var carros_proximos = detector_de_carro.get_overlapping_bodies()
 	
 	for outro_carro in carros_proximos:
-		# Verifica se não é ele mesmo e se é um inimigo
+		
 		if outro_carro != self and outro_carro.is_in_group("inimigos"):
-			# Na Godot, o Y cresce para baixo. Então se o Y do outro carro for maior, 
-			# significa que ele está atrás do nosso carro.
 			if outro_carro.global_position.y > global_position.y:
 				aceleracao_fuga = 150.0
-				break # Já achou alguém atrás, pode parar de procurar e acelerar
-
+				break 
 	velocity.y = -(velocidade + aceleracao_fuga)
 
 	if comportamento == TipoComportamento.FECHA_JOGADOR and not mudando_faixa:

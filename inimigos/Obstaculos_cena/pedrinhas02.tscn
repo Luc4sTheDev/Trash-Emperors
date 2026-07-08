@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dbry38ehaem0q"]
+
+[ext_resource type="Texture2D" uid="uid://d0ots5hcdr563" path="res://Artes Oficiais/Sprites/Obstaculos/Pedrinhas2.png" id="1_nonoh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 33.37664
+
+[node name="Hitbox" type="Area2D" unique_id=1504630044]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071487739]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1590907647]
+scale = Vector2(0.19999999, 0.19999999)
+texture = ExtResource("1_nonoh")

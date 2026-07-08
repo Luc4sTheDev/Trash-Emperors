@@ -7,20 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bj60seuubp2ws" path="res://Cenas/GasolinaGalao.tscn" id="5_iqurr"]
 [ext_resource type="PackedScene" uid="uid://dmxu0qr3hqdvg" path="res://Cenas/Prefabs/Lixo.tscn" id="6_h3cfr"]
 [ext_resource type="Script" uid="uid://nhf6jsucnrhl" path="res://Scripts/Objetos/lixo.gd" id="6_viufs"]
-[ext_resource type="Texture2D" uid="uid://b2s8yh14fxcfd" path="res://Artes das Fases/Nova Cruz/ParallaxDireito.png" id="8_m4wth"]
-[ext_resource type="Texture2D" uid="uid://nqqjbc0ynkeb" path="res://Artes das Fases/Nova Cruz/ParallaxEsquerdo.png" id="9_x1u25"]
-[ext_resource type="Texture2D" uid="uid://cn7mb7filspqe" path="res://Artes das Fases/Nova Cruz/Estrada.png" id="10_8i1l6"]
-[ext_resource type="Script" uid="uid://vwga0ucsf0ex" path="res://inimigos/spawner_inimigos.gd" id="11_8i1l6"]
-[ext_resource type="PackedScene" uid="uid://c216rw5djid7o" path="res://inimigos/carro_inimigo.tscn" id="11_x1u25"]
+[ext_resource type="PackedScene" uid="uid://b6xafwwljwch1" path="res://Cenas/Prefabs/colisor_parede.tscn" id="8_x1u25"]
+[ext_resource type="PackedScene" uid="uid://b27fam075fosf" path="res://Cenas/colisor_parede_2.tscn" id="9_8i1l6"]
+[ext_resource type="PackedScene" uid="uid://dojmyfae3fb06" path="res://Cenas/spawner_inimigos.tscn" id="10_m4wth"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q6rdc"]
 load_path = "res://.godot/imported/Road_Side_02.png-a7c26d315bd5e694d389c6f29a60e352.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fetcc"]
 size = Vector2(99, 78)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(302, 38514)
 
 [node name="Node2D" type="Node2D" unique_id=524872734]
 script = ExtResource("1_iqurr")
@@ -148,7 +143,6 @@ scale = Vector2(1.4000001, 1.4000001)
 motion_mirroring = Vector2(0, 580)
 
 [node name="Direita" type="Sprite2D" parent="ParallaxBackground/Direita" unique_id=705731412]
-texture = ExtResource("8_m4wth")
 region_rect = Rect2(3000, 3000, 0, 0)
 
 [node name="Esquerda" type="ParallaxLayer" parent="ParallaxBackground" unique_id=646045044]
@@ -157,7 +151,6 @@ scale = Vector2(1.4000001, 1.4000001)
 motion_mirroring = Vector2(0, 580)
 
 [node name="Esquerda" type="Sprite2D" parent="ParallaxBackground/Esquerda" unique_id=295865470]
-texture = ExtResource("9_x1u25")
 
 [node name="Estrada" type="ParallaxLayer" parent="ParallaxBackground" unique_id=600317221]
 position = Vector2(2528, 1237)
@@ -165,28 +158,14 @@ scale = Vector2(1.4138064, 1.4000001)
 motion_mirroring = Vector2(0, 580)
 
 [node name="Road" type="Sprite2D" parent="ParallaxBackground/Estrada" unique_id=159555901]
-texture = ExtResource("10_8i1l6")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=168523885 groups=["Parede"]]
+[node name="ColisorParede" parent="." unique_id=137045838 instance=ExtResource("8_x1u25")]
 position = Vector2(2678, 1669)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1099124308]
-position = Vector2(156, -19225)
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1808015506 groups=["Parede"]]
+[node name="ColisorParede2" parent="." unique_id=879851484 instance=ExtResource("9_8i1l6")]
 position = Vector2(2073, 1669)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1478355929]
-position = Vector2(156, -19225)
-shape = SubResource("RectangleShape2D_yf5fn")
-
-[node name="SpawnerInimigos" type="Node2D" parent="." unique_id=769705673 node_paths=PackedStringArray("jogador")]
-script = ExtResource("11_8i1l6")
-cena_inimigo = ExtResource("11_x1u25")
-jogador = NodePath("../CaminhaoTeste")
-tempo_spawn = 5.5
-faixas = Array[float]([-50.0, 25.0])
+[node name="SpawnerInimigos" parent="." unique_id=1168627685 instance=ExtResource("10_m4wth")]
 
 [connection signal="area_entered" from="gasolinaTeste" to="CaminhaoTeste" method="_on_gasolina_teste_area_entered"]
 [connection signal="area_entered" from="Lixo" to="CaminhaoTeste" method="_on_lixo_area_entered"]

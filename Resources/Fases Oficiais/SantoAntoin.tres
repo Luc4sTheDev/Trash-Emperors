@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FaseData" format=3 uid="uid://cx16tqwj7ddau"]
+
+[ext_resource type="PackedScene" uid="uid://bbornsf7y2kiq" path="res://Cenas/Cenas Oficiais/santo_antonio.tscn" id="1_0d5jh"]
+[ext_resource type="Script" uid="uid://b5xrksvy6wfem" path="res://Resources/ScriptsResources/Fases.gd" id="1_6yjag"]
+[ext_resource type="Texture2D" uid="uid://mc6s6ary0ghq" path="res://Artes das Fases/IconeLoja/Santo Antônio.jpg" id="2_h538g"]
+
+[resource]
+script = ExtResource("1_6yjag")
+nome_da_fase = "Santo Antônio"
+preco = 1500
+cena_da_fase = ExtResource("1_0d5jh")
+icone = ExtResource("2_h538g")
+metadata/_custom_type_script = "uid://b5xrksvy6wfem"

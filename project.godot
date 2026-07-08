@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Trash Emperors"
-run/main_scene="uid://denrdfjgqn16r"
+run/main_scene="uid://cg5xgwwxhjdyh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 PontosGlobal="*uid://c7jneilmvslri"
 GerenciadorPartida="*uid://pqn8quieqxai"
 InventarioGlobal="*uid://devigeilbxq1g"
+FaseGlobalIndicador="*uid://b6vnr051mivg6"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [global_group]
 

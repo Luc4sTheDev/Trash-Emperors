@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FaseData" format=3 uid="uid://j87fw3lth3vv"]
+
+[ext_resource type="PackedScene" uid="uid://cgfiixrm7wgdi" path="res://Cenas/Cenas Oficiais/Lagoa_de_pedra.tscn" id="1_gtafy"]
+[ext_resource type="Script" uid="uid://b5xrksvy6wfem" path="res://Resources/ScriptsResources/Fases.gd" id="1_rdnkt"]
+[ext_resource type="Texture2D" uid="uid://cm4kto4jv1u1l" path="res://Artes das Fases/IconeLoja/Lagoa de Pedras.jpeg" id="2_nh77c"]
+
+[resource]
+script = ExtResource("1_rdnkt")
+nome_da_fase = "Lagoa de Pedras"
+esta_desbloqueada = true
+cena_da_fase = ExtResource("1_gtafy")
+icone = ExtResource("2_nh77c")
+metadata/_custom_type_script = "uid://b5xrksvy6wfem"

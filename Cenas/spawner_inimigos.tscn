@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dojmyfae3fb06"]
+
+[ext_resource type="Script" uid="uid://vwga0ucsf0ex" path="res://inimigos/spawner_inimigos.gd" id="1_4scwa"]
+[ext_resource type="PackedScene" uid="uid://c216rw5djid7o" path="res://inimigos/carro_inimigo.tscn" id="2_q8hfa"]
+
+[node name="SpawnerInimigos" type="Node2D" unique_id=1168627685 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_4scwa")
+cena_inimigo = ExtResource("2_q8hfa")
+jogador = NodePath("")
+tempo_spawn = 5.5
+faixas = Array[float]([-50.0, 25.0])

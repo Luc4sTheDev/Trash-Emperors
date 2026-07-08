@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FaseData" format=3 uid="uid://bfytfgg5q40wk"]
+[gd_resource type="Resource" script_class="FaseData" format=3 uid="uid://d21efhksc71x2"]
 
 [ext_resource type="PackedScene" uid="uid://denrdfjgqn16r" path="res://Cenas/debug.tscn" id="1_kulue"]
 [ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="2_nvcox"]

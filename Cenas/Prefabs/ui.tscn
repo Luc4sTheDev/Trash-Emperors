@@ -1,62 +1,97 @@
 [gd_scene format=3 uid="uid://nqjwfvs6511b"]
 
 [ext_resource type="Script" uid="uid://qwlqngrd5uql" path="res://Scripts/medidor_gasolina.gd" id="1_53oju"]
+[ext_resource type="Texture2D" uid="uid://bte7bg6gkrv2r" path="res://Artes Oficiais/UI/Painel.png" id="2_tgp2l"]
+[ext_resource type="Texture2D" uid="uid://livc5xtlk1gv" path="res://Artes Oficiais/UI/GasolinaBarra.png" id="2_tyc78"]
+[ext_resource type="Texture2D" uid="uid://d3egeh00tg1x7" path="res://Artes Oficiais/UI/GasolinaBarra(Medidor).png" id="3_xa6cl"]
+[ext_resource type="Texture2D" uid="uid://dve7fe2h3cvuy" path="res://Artes Oficiais/UI/BarraMinimapa.png" id="4_mvgga"]
+[ext_resource type="Texture2D" uid="uid://cd1bs1xql0f6o" path="res://Artes Oficiais/UI/Bateu.png" id="4_xkdqt"]
+[ext_resource type="Texture2D" uid="uid://brrpfbmc80tp1" path="res://Artes Oficiais/UI/MedidorMinimapa.png" id="5_e5ulu"]
+[ext_resource type="Script" uid="uid://dts44rhevt1e4" path="res://Scripts/UI/cidadeUI.gd" id="5_xa6cl"]
+[ext_resource type="Texture2D" uid="uid://0belj8r01oup" path="res://Artes Oficiais/UI/PerdeuGas.png" id="5_ycvh1"]
+[ext_resource type="Texture2D" uid="uid://bwdvf1dvewmpv" path="res://Artes Oficiais/UI/BandeiraPNG.png" id="6_xkdqt"]
+[ext_resource type="Texture2D" uid="uid://c4uhfu2njsgu" path="res://Artes Oficiais/UI/Vitoria.png" id="6_ycvh1"]
 
 [node name="UI" type="CanvasLayer" unique_id=2043441723]
 
 [node name="MedidorGasolina" type="Control" parent="." unique_id=552492409]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1148.0
-offset_bottom = 647.0
+offset_left = 1595.0
+offset_top = -343.00003
+offset_right = 2743.0
+offset_bottom = 303.99997
+rotation = 1.5707964
+scale = Vector2(1.24, 1.24)
 script = ExtResource("1_53oju")
 truck_path = NodePath("../../CaminhaoTeste")
 
-[node name="GasolinaUI" type="ProgressBar" parent="MedidorGasolina" unique_id=1087027748]
+[node name="GasolinaUI" type="TextureProgressBar" parent="MedidorGasolina" unique_id=78456770]
 layout_mode = 0
-offset_left = 1023.00006
-offset_top = 623.0
-offset_right = 1332.0
-offset_bottom = 683.0
-rotation = -1.5603449
-show_percentage = false
+offset_left = 1096.7742
+offset_top = 616.9354
+offset_right = 1405.7742
+offset_bottom = 780.9354
+rotation = -3.1415927
+scale = Vector2(1.3225807, 1.3225807)
+min_value = -6.0
+step = 0.1
+fill_mode = 3
+texture_under = ExtResource("2_tyc78")
+texture_progress = ExtResource("3_xa6cl")
 
 [node name="F" type="Label" parent="MedidorGasolina" unique_id=691288408]
 layout_mode = 0
-offset_left = 1047.0
-offset_top = 337.0
-offset_right = 1057.0
-offset_bottom = 360.0
+offset_left = 1025.0
+offset_top = 594.3548
+offset_right = 1045.0
+offset_bottom = 645.3548
+rotation = -1.5707964
 theme_override_font_sizes/font_size = 37
 text = "F"
 horizontal_alignment = 1
 
 [node name="E" type="Label" parent="MedidorGasolina" unique_id=1418784600]
 layout_mode = 0
-offset_left = 1043.0
-offset_top = 561.0
-offset_right = 1063.0
-offset_bottom = 612.0
+offset_left = 1025.0
+offset_top = 441.12903
+offset_right = 1046.0
+offset_bottom = 492.12903
+rotation = -1.5707964
 theme_override_font_sizes/font_size = 37
 text = "E"
 horizontal_alignment = 1
 
-[node name="TelaDerrota" type="Control" parent="." unique_id=110275928]
+[node name="PerdeuBatendo" type="Control" parent="." unique_id=110275928]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_top = -64.0
-offset_right = 40.0
-offset_bottom = -24.0
+offset_left = -107.0
+offset_top = -258.0
+offset_right = -67.0
+offset_bottom = -218.0
+scale = Vector2(1.9199994, 1.9199994)
 
-[node name="Label" type="Label" parent="TelaDerrota" unique_id=1834831263]
-layout_mode = 0
-offset_left = 366.0
-offset_top = 240.0
-offset_right = 453.0
-offset_bottom = 263.0
-scale = Vector2(4.48, 4.48)
-text = "Game Over"
+[node name="Label" type="Sprite2D" parent="PerdeuBatendo" unique_id=2101487403]
+position = Vector2(567.1877, 372.39597)
+scale = Vector2(0.43846926, 0.43846923)
+texture = ExtResource("4_xkdqt")
+
+[node name="PerdeuPorGasolina" type="Control" parent="." unique_id=984548568]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -107.0
+offset_top = -263.0
+offset_right = -67.0
+offset_bottom = -223.0
+scale = Vector2(1.9199994, 1.9199994)
+
+[node name="Label" type="Sprite2D" parent="PerdeuPorGasolina" unique_id=960726262]
+position = Vector2(567.1877, 375.00012)
+scale = Vector2(0.4427929, 0.44279295)
+texture = ExtResource("5_ycvh1")
 
 [node name="Interact" type="Control" parent="." unique_id=14731725]
 visible = false
@@ -86,16 +121,19 @@ text = "E"
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_top = 2.0
-offset_right = 1147.0
-offset_bottom = 640.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 1153.0
+offset_bottom = 643.0
 
 [node name="Panel" type="Panel" parent="Reciclar" unique_id=1734500258]
+self_modulate = Color(17.694864, 0, 0, 1)
 layout_mode = 0
-offset_left = 517.0
-offset_top = 103.0
-offset_right = 607.0
-offset_bottom = 186.0
+offset_left = 700.0
+offset_top = 123.0
+offset_right = 1077.0
+offset_bottom = 206.0
+scale = Vector2(1.36, 1.36)
 
 [node name="Label" type="Label" parent="Reciclar/Panel" unique_id=1183309230]
 layout_mode = 0
@@ -104,44 +142,68 @@ offset_top = 6.0
 offset_right = 41.0
 offset_bottom = 29.0
 scale = Vector2(2.7999976, 2.7999976)
-text = "F"
+text = "F para Reciclar"
 
 [node name="Pontuacao" type="Control" parent="." unique_id=349053975]
+modulate = Color(0, 0, 0, 1)
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1003.0
-offset_right = 1043.0
-offset_bottom = 22.463768
+offset_left = 1726.9999
+offset_top = 936.0
+offset_right = 1766.9999
+offset_bottom = 958.46375
 scale = Vector2(2.76, 2.76)
 
 [node name="Label" type="Label" parent="Pontuacao" unique_id=960559259]
 layout_mode = 0
-offset_left = -12.68116
-offset_right = 27.31884
+offset_left = -1.0869131
+offset_right = 49.27539
 offset_bottom = 23.0
+
+[node name="PontuacaoLabelText" type="Label" parent="Pontuacao" unique_id=1533935555]
+layout_mode = 0
+offset_left = -79.347786
+offset_top = 1.8115942
+offset_right = 7.652214
+offset_bottom = 24.811594
+scale = Vector2(0.86956346, 0.86956346)
+text = "Pontuação:"
 
 [node name="TelaVitoria" type="Control" parent="." unique_id=792018269]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 92.0
+offset_top = -15.0
+offset_right = 132.0
+offset_bottom = 25.0
+scale = Vector2(1.52, 1.52)
+
+[node name="Sprite2D" type="Sprite2D" parent="TelaVitoria" unique_id=841267200]
+position = Vector2(588.1579, 276.97366)
+scale = Vector2(0.5000004, 0.5000004)
+texture = ExtResource("6_ycvh1")
 
 [node name="MensagemVitoria" type="Label" parent="TelaVitoria" unique_id=935886478]
 layout_mode = 0
-offset_left = 335.0
-offset_top = 108.0
-offset_right = 436.0
-offset_bottom = 131.0
-scale = Vector2(4.8, 4.8)
+offset_left = 369.07898
+offset_top = 281.57895
+offset_right = 505.51678
+offset_bottom = 304.57895
+scale = Vector2(1.5105282, 1.5105282)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="Minimapa" type="Control" parent="." unique_id=2003082503]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 43.0
+offset_top = 123.00001
+offset_right = 83.0
+offset_bottom = 163.0
+scale = Vector2(1.2664666, 1.2664666)
 
-[node name="ProgressBar" type="ProgressBar" parent="Minimapa" unique_id=1845044047]
+[node name="ProgressBar" type="TextureProgressBar" parent="Minimapa" unique_id=1195377226]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 604.0
@@ -149,23 +211,64 @@ offset_right = 293.0
 offset_bottom = 631.0
 rotation = -1.5707964
 scale = Vector2(1.7599989, 1.7599989)
-show_percentage = false
+texture_under = ExtResource("4_mvgga")
+texture_progress = ExtResource("5_e5ulu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Minimapa" unique_id=367411850]
+position = Vector2(55.46876, -27.343754)
+scale = Vector2(0.10546921, 0.10546921)
+texture = ExtResource("6_xkdqt")
 
 [node name="Reiniciar" type="Button" parent="." unique_id=2038740640]
 visible = false
-offset_left = 475.99997
-offset_top = 466.0
-offset_right = 552.0
-offset_bottom = 497.0
-scale = Vector2(2.5199997, 2.5199997)
-text = "Reiniciar"
+offset_left = 804.0
+offset_top = 550.11993
+offset_right = 907.7356
+offset_bottom = 581.11993
+scale = Vector2(3.480001, 3.480001)
+text = "
+"
+flat = true
 
 [node name="VoltarAoMenu" type="Button" parent="." unique_id=1134348046]
 visible = false
-offset_left = 421.0
-offset_top = 564.0
-offset_right = 548.0
-offset_bottom = 595.0
-scale = Vector2(2.386843, 2.386843)
-text = "Voltar ao menu
-"
+offset_left = 816.0
+offset_top = 551.0
+offset_right = 951.1617
+offset_bottom = 583.5978
+scale = Vector2(2.5155058, 2.5155058)
+flat = true
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=925247791]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer" unique_id=627089191]
+position = Vector2(971.99994, 976.00006)
+scale = Vector2(0.98033637, 0.9803363)
+texture = ExtResource("2_tgp2l")
+
+[node name="ConteudoPainel" type="Control" parent="." unique_id=1931548303]
+texture_filter = 1
+layout_mode = 3
+anchor_right = 0.047000002
+anchor_bottom = 0.08400001
+offset_left = 53.999992
+offset_top = 917.99994
+offset_right = 653.8551
+offset_bottom = 1517.375
+scale = Vector2(3.651865, 3.651865)
+script = ExtResource("5_xa6cl")
+
+[node name="Local" type="Label" parent="ConteudoPainel" unique_id=1316215672]
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cidade:"
+
+[node name="Cidade" type="Label" parent="ConteudoPainel" unique_id=436305592]
+layout_mode = 0
+offset_left = 65.446014
+offset_right = 177.71744
+offset_bottom = 23.0

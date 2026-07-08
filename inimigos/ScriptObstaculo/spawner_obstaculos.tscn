@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dxy7n0n0n3id4"]
+
+[ext_resource type="Script" uid="uid://dck11xa7evpfd" path="res://inimigos/ScriptObstaculo/spawner_obstaculos.gd" id="1_x3t21"]
+[ext_resource type="PackedScene" uid="uid://vgljnqoyrkwe" path="res://inimigos/Obstaculos_cena/placa_obstaculo.tscn" id="2_7bgux"]
+[ext_resource type="PackedScene" uid="uid://cmh8i4ddb7ixk" path="res://inimigos/Obstaculos_cena/buraco.tscn" id="3_qtioj"]
+[ext_resource type="PackedScene" uid="uid://dqfe3ldoam07r" path="res://inimigos/Obstaculos_cena/pedrinhas01.tscn" id="4_fjig4"]
+[ext_resource type="PackedScene" uid="uid://dbry38ehaem0q" path="res://inimigos/Obstaculos_cena/pedrinhas02.tscn" id="5_e6thf"]
+
+[node name="spawner_obstaculos" type="Node2D" unique_id=279333276]
+script = ExtResource("1_x3t21")
+cenas_para_spawnar = Array[PackedScene]([ExtResource("2_7bgux"), ExtResource("3_qtioj"), ExtResource("4_fjig4"), ExtResource("5_e6thf")])
+faixas = Array[float]([-50.0, 25.0])

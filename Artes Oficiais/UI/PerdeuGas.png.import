@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nqqjbc0ynkeb"
-path="res://.godot/imported/ParallaxEsquerdo.png-aa9cb2d06057abe73ca8698197de9021.ctex"
+uid="uid://0belj8r01oup"
+path="res://.godot/imported/PerdeuGas.png-8d9aba3b7939e8d5f04f3805ddda9b8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artes das Fases/Nova Cruz/ParallaxEsquerdo.png"
-dest_files=["res://.godot/imported/ParallaxEsquerdo.png-aa9cb2d06057abe73ca8698197de9021.ctex"]
+source_file="res://Artes Oficiais/UI/PerdeuGas.png"
+dest_files=["res://.godot/imported/PerdeuGas.png-8d9aba3b7939e8d5f04f3805ddda9b8d.ctex"]
 
 [params]
 

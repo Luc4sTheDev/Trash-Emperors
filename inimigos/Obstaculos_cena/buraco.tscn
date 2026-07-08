@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cmh8i4ddb7ixk"]
+
+[ext_resource type="Script" uid="uid://vckegyao4343" path="res://inimigos/ScriptObstaculo/obstaculos.gd" id="1_vnfum"]
+[ext_resource type="Texture2D" uid="uid://bisv6x7n2rkno" path="res://Artes Oficiais/Sprites/Obstaculos/Buraqueira.png" id="2_gexq5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ixo8"]
+radius = 42.0119
+
+[node name="Hitbox" type="Area2D" unique_id=1850390225 groups=["inimigos"]]
+script = ExtResource("1_vnfum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=274690144]
+shape = SubResource("CircleShape2D_6ixo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=365990652]
+scale = Vector2(0.19999808, 0.19999808)
+texture = ExtResource("2_gexq5")

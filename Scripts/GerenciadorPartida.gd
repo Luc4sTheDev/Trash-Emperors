@@ -9,6 +9,8 @@ signal progresso_alterado(distancia_atual: float, distancia_total: float)
 var distancia_percorrida: float = 0.0
 var partida_ativa: bool = false
 var partida_vencida: bool = false
+var perdeu_batendo:bool = false
+var perdeuGasolina:bool = false
 
 
 func _ready() -> void:
@@ -35,12 +37,14 @@ func perder_por_morte() -> void:
 	if partida_ativa:
 		partida_vencida = false
 		partida_ativa = false
+		perdeu_batendo = true
 		partida_perdida.emit()
 		
 func perder_por_gasolina() -> void:
 	if partida_ativa:
 		partida_vencida = false
 		partida_ativa = false
+		perdeuGasolina = true
 		partida_perdida.emit()
 
 func vencer_partida() -> void:

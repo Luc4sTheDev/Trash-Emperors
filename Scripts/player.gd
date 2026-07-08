@@ -7,7 +7,7 @@ var pontos: int = 0
 @onready var label: Label = $"../UI/Pontuacao/Label"
 @onready var reciclar: Control = $"../UI/Reciclar"
 @onready var sprite_caminhao: Sprite2D = $spriteCaminhao
-var tamanho_fixo = Vector2(64.0, 128.0)
+var tamanho_fixo = Vector2(200.0, 300.0)
 
 @export var front_speed : float = 600.0
 @export var acceleration : float = 400.0
@@ -179,6 +179,6 @@ func _on_sensor_perigo_body_exited(body):
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	var atacante = area.owner
-	if atacante is carro_transito and atacante != self:
+	if (atacante is carro_transito or obstaculos_tenebrosos) and atacante != self:
 		if "Hitbox" in area.name:
 			morrer()

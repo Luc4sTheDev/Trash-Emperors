@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dmxu0qr3hqdvg"]
 
 [ext_resource type="Script" uid="uid://nhf6jsucnrhl" path="res://Scripts/Objetos/lixo.gd" id="1_2uv77"]
-[ext_resource type="Texture2D" uid="uid://y26x3ofxkh30" path="res://Cenario/Road_01/Road_01_Tile_01/Layers/Road_Side_02.png" id="2_svc1c"]
+[ext_resource type="Texture2D" uid="uid://dqxf27h26lnqi" path="res://Artes Oficiais/Sprites/Coletaveis/Lixo.png" id="2_2uv77"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fetcc"]
-size = Vector2(99, 78)
+[sub_resource type="CircleShape2D" id="CircleShape2D_jrqld"]
+radius = 34.434235
 
 [node name="Lixo" type="Area2D" unique_id=849377789 groups=["lixo"]]
 z_index = 1
@@ -16,10 +16,10 @@ script = ExtResource("1_2uv77")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=482092088]
 z_index = 1
 position = Vector2(40.417377, 29)
-scale = Vector2(0.5857569, 0.5857569)
-texture = ExtResource("2_svc1c")
+scale = Vector2(0.15200955, 0.15200955)
+texture = ExtResource("2_2uv77")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1584408113]
 z_index = 1
 position = Vector2(39.5, 29)
-shape = SubResource("RectangleShape2D_fetcc")
+shape = SubResource("CircleShape2D_jrqld")

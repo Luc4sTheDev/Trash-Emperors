@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bj60seuubp2ws"]
 
 [ext_resource type="Script" uid="uid://bf142ebdf7ysl" path="res://Scripts/Objetos/gasolina_fill.gd" id="1_pbef4"]
-[ext_resource type="Texture2D" uid="uid://krlhposerjgx" path="res://icon.svg" id="2_1cyk5"]
+[ext_resource type="Texture2D" uid="uid://d12tgc6ys3qbc" path="res://Artes Oficiais/Sprites/Coletaveis/Gasolina.png" id="2_pbef4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fojc"]
 size = Vector2(168, 174)
@@ -13,8 +13,10 @@ script = ExtResource("1_pbef4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025455723]
 position = Vector2(51, -2)
+scale = Vector2(0.6, 0.6)
 shape = SubResource("RectangleShape2D_7fojc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1888827493]
 position = Vector2(52, 0)
-texture = ExtResource("2_1cyk5")
+scale = Vector2(0.3600003, 0.3600003)
+texture = ExtResource("2_pbef4")

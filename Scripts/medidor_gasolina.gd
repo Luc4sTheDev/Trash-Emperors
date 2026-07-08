@@ -1,7 +1,7 @@
 class_name GasUI
 extends Control
 
-@onready var gasolina_ui: ProgressBar = $GasolinaUI
+@onready var gasolina_ui: TextureProgressBar = $GasolinaUI
 
 @export var truck_path: NodePath
 var truck_class: Caminhao_Lixo

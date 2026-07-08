@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2s8yh14fxcfd"
-path="res://.godot/imported/ParallaxDireito.png-8d5f9d57c4fc9cbe6687e66d7ddaf1c6.ctex"
+uid="uid://oni18dvckl0e"
+path="res://.godot/imported/SetaVoltar.png-c6ccb14d43fbe2db6ac6ec5aa8b8431b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artes das Fases/Nova Cruz/ParallaxDireito.png"
-dest_files=["res://.godot/imported/ParallaxDireito.png-8d5f9d57c4fc9cbe6687e66d7ddaf1c6.ctex"]
+source_file="res://Artes Oficiais/Menu/SetaVoltar.png"
+dest_files=["res://.godot/imported/SetaVoltar.png-c6ccb14d43fbe2db6ac6ec5aa8b8431b.ctex"]
 
 [params]
 

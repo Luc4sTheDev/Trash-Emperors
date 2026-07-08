@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bfqpgh0mrf8i2"]
+
+[ext_resource type="Script" uid="uid://dvoej4ssc71p8" path="res://inimigos/ScriptColetaveis/spawner_coletaveis.gd" id="1_koiew"]
+[ext_resource type="PackedScene" uid="uid://bj60seuubp2ws" path="res://Cenas/GasolinaGalao.tscn" id="2_sso10"]
+[ext_resource type="PackedScene" uid="uid://dmxu0qr3hqdvg" path="res://Cenas/Prefabs/Lixo.tscn" id="3_ftof0"]
+
+[node name="spawner_coletaveis" type="Node2D" unique_id=1403084825]
+script = ExtResource("1_koiew")
+cenas_para_spawnar = Array[PackedScene]([ExtResource("2_sso10"), ExtResource("3_ftof0")])
+faixas = Array[float]([-50.0, 25.0])

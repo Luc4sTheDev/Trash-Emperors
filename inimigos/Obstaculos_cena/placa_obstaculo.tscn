@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://vgljnqoyrkwe"]
+
+[ext_resource type="Script" uid="uid://vckegyao4343" path="res://inimigos/ScriptObstaculo/obstaculos.gd" id="1_wr7t4"]
+[ext_resource type="Texture2D" uid="uid://buet1vkohbct7" path="res://Artes Oficiais/Sprites/Obstaculos/Placa.png" id="2_usq2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(134, 129)
+
+[node name="Hitbox" type="Area2D" unique_id=861973606 groups=["inimigos"]]
+script = ExtResource("1_wr7t4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758170593]
+position = Vector2(-1, 3.5)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_g4v7s")
+debug_color = Color(0.70439005, 0, 0.3682659, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=424441356]
+scale = Vector2(0.22221181, 0.22221181)
+texture = ExtResource("2_usq2q")

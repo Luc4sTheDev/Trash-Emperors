@@ -19,7 +19,7 @@ func spawnar():
 		return
 
 	var inimigo = cena_inimigo.instantiate()
-	get_parent().add_child(inimigo)
+	get_parent().add_child.call_deferred(inimigo)
 
 	var pos_x = jogador.global_position.x + faixas.pick_random()
 	var pos_spawn = Vector2(pos_x, jogador.global_position.y - 800)

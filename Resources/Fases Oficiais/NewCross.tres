@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FaseData" format=3 uid="uid://cluh4ebdkud7d"]
+
+[ext_resource type="PackedScene" uid="uid://clm1dywiq37qy" path="res://Cenas/Cenas Oficiais/nova_cruz.tscn" id="1_5qcdt"]
+[ext_resource type="Script" uid="uid://b5xrksvy6wfem" path="res://Resources/ScriptsResources/Fases.gd" id="1_7kvxx"]
+[ext_resource type="Texture2D" uid="uid://d0e3oqgse8gqp" path="res://Artes das Fases/IconeLoja/Nova CruzRN.jpg" id="2_m26ep"]
+
+[resource]
+script = ExtResource("1_7kvxx")
+nome_da_fase = "Nova Cruz"
+preco = 2500
+cena_da_fase = ExtResource("1_5qcdt")
+icone = ExtResource("2_m26ep")
+metadata/_custom_type_script = "uid://b5xrksvy6wfem"
