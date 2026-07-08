@@ -7,6 +7,10 @@ var pontos: int = 0
 @onready var label: Label = $"../UI/Pontuacao/Label"
 @onready var reciclar: Control = $"../UI/Reciclar"
 @onready var sprite_caminhao: Sprite2D = $spriteCaminhao
+@onready var lixo_coletado_UI: Label = $"../UI/IndicadorColetado/LixoColetado"
+@onready var lixo_reciclado_UI: Label = $"../UI/IndicadorColetado/LixoReciclado"
+@onready var gasolina_coletada_UI: Label = $"../UI/IndicadorColetado/GasolinaColetada"
+
 var tamanho_fixo = Vector2(200.0, 300.0)
 
 @export var front_speed : float = 600.0
@@ -128,6 +132,9 @@ func _on_gasolina_teste_area_entered(area: Area2D) -> void:
 		current_gas += 20.0
 		current_gas = clamp(current_gas, 0, gas_max)
 		gas_change.emit(current_gas)
+		gasolina_coletada_UI.show()
+		await get_tree().create_timer(2.0).timeout
+		gasolina_coletada_UI.hide()
 
 
 func _on_lixo_area_entered(area: Area2D) -> void:
@@ -141,6 +148,9 @@ func _on_lixo_area_entered(area: Area2D) -> void:
 		lixo_coletado += 1
 		pontos += 100
 		label.text = " " + str(pontos)
+		lixo_coletado_UI.show()
+		await get_tree().create_timer(2.0).timeout
+		lixo_coletado_UI.hide()
 
 func reciclarLixo():
 	if lixo_coletado >= lixo_max:
@@ -154,6 +164,9 @@ func reciclarLixo():
 		lixo_coletado = 0
 		pontos *= 2
 		label.text = " " + str(pontos)
+		lixo_reciclado_UI.show()
+		await get_tree().create_timer(2.0).timeout
+		lixo_reciclado_UI.hide()
 
 func morrer():
 	GerenciadorPartida.perder_por_morte()

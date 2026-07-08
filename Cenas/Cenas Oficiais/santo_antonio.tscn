@@ -65,6 +65,8 @@ jogador = NodePath("../CaminhaoTeste")
 [node name="spawner_obstaculos" parent="." unique_id=279333276 node_paths=PackedStringArray("jogador") instance=ExtResource("11_tsy05")]
 position = Vector2(953, 1603.0001)
 jogador = NodePath("../CaminhaoTeste")
+tempo_minimo = 5.0
+tempo_maximo = 7.0
 
 [node name="spawner_coletaveis" parent="." unique_id=1403084825 node_paths=PackedStringArray("jogador") instance=ExtResource("12_5oto5")]
 position = Vector2(953, 1603.0001)

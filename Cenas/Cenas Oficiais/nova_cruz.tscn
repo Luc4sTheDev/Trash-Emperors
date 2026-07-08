@@ -69,3 +69,5 @@ tempo_maximo = 7.5
 
 [node name="spawner_coletaveis" parent="." unique_id=1403084825 node_paths=PackedStringArray("jogador") instance=ExtResource("12_lebje")]
 jogador = NodePath("../CaminhaoTeste")
+tempo_minimo = 5.0
+tempo_maximo = 7.0

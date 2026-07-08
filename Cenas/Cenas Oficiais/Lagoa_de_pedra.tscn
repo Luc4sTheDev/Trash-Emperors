@@ -72,3 +72,5 @@ jogador = NodePath("../CaminhaoTeste")
 [node name="spawner_obstaculos" parent="." unique_id=279333276 node_paths=PackedStringArray("jogador") instance=ExtResource("12_munq0")]
 position = Vector2(3498, 2558)
 jogador = NodePath("../CaminhaoTeste")
+tempo_minimo = 5.0
+tempo_maximo = 7.0

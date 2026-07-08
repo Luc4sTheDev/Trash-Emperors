@@ -272,3 +272,38 @@ layout_mode = 0
 offset_left = 65.446014
 offset_right = 177.71744
 offset_bottom = 23.0
+
+[node name="IndicadorColetado" type="Control" parent="." unique_id=1704111086]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1138.0001
+offset_top = 928.0
+offset_right = 1178.0001
+offset_bottom = 968.0
+
+[node name="LixoColetado" type="Label" parent="IndicadorColetado" unique_id=31820694]
+visible = false
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 23.0
+scale = Vector2(2.9957027, 2.9957027)
+text = "Lixo Coletado"
+
+[node name="LixoReciclado" type="Label" parent="IndicadorColetado" unique_id=1292609020]
+visible = false
+layout_mode = 0
+offset_left = -16.00012
+offset_right = 93.99988
+offset_bottom = 23.0
+scale = Vector2(3.2, 3.2)
+text = "Lixo Reciclado"
+
+[node name="GasolinaColetada" type="Label" parent="IndicadorColetado" unique_id=873913416]
+visible = false
+layout_mode = 0
+offset_left = -14.000123
+offset_top = 6.0000005
+offset_right = 125.99988
+offset_bottom = 29.0
+scale = Vector2(2.5600002, 2.5600002)
+text = "Gasolina Coletada"
