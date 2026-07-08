@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbornsf7y2kiq"]
 
 [ext_resource type="Script" uid="uid://ca3bjbj6o7mjs" path="res://Scripts/Câmera/camera_do_jogo.gd" id="1_6nf38"]
-[ext_resource type="Script" uid="uid://bgqxkuyawkhsa" path="res://Script Fases/debugTeste.gd" id="1_gl6oy"]
+[ext_resource type="Script" uid="uid://cniqf1hon1cao" path="res://Script Fases/santo_antonio_script.gd" id="1_tsy05"]
 [ext_resource type="PackedScene" uid="uid://dcfqfw4mmc4mr" path="res://Trucks/caminhao_teste.tscn" id="2_reljr"]
 [ext_resource type="PackedScene" uid="uid://nqjwfvs6511b" path="res://Cenas/Prefabs/ui.tscn" id="3_tngjm"]
 [ext_resource type="Texture2D" uid="uid://dsdmkwivwm2lc" path="res://Artes das Fases/Santo Antonio/ParallaxDireita.png" id="4_fo52k"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bfqpgh0mrf8i2" path="res://inimigos/ScriptColetaveis/spawner_coletaveis.tscn" id="12_5oto5"]
 
 [node name="SantoAntonio" type="Node2D" unique_id=155611540]
-script = ExtResource("1_gl6oy")
+script = ExtResource("1_tsy05")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=951035818 node_paths=PackedStringArray("jogador")]
 position = Vector2(953, 1603.0001)

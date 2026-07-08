@@ -12,6 +12,8 @@ var partida_vencida: bool = false
 var perdeu_batendo:bool = false
 var perdeuGasolina:bool = false
 
+var balao_ja_foi_exibido:bool = false
+@export var nome_da_fase_atual: String = "Cidade"
 
 func _ready() -> void:
 	Engine.time_scale = 1.0

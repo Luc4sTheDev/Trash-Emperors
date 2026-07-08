@@ -18,16 +18,20 @@ var mudando_faixa := false
 @onready var ray_esquerda = $RaycastEsquerda
 @onready var ray_direita = $RaycastDireita
 @onready var detector_de_carro: Area2D = $DetectorDeCarro
+@onready var balao_fala: PanelContainer = $"balaodefala"
 
 func inicializar(ref_jogador: Node2D, pos_inicial: Vector2, tipo_escolhido: TipoComportamento):
 	jogador = ref_jogador
 	global_position = pos_inicial
 	comportamento = tipo_escolhido
 	alvo_x = pos_inicial.x
+	
+
 
 func _ready():
 	z_index = 100
 	add_to_group("inimigos")
+	verificar_gatilho_de_fala()
 func _physics_process(delta):
 	if jogador == null:
 		return
@@ -94,5 +98,19 @@ func verificar_obstaculo(raycast: RayCast2D) -> bool:
 			elif colisor.is_in_group("inimigos"):
 				return true 
 	return false
+	
+func verificar_gatilho_de_fala() -> void:
+	if GerenciadorPartida.nome_da_fase_atual == "Santo Antônio":
+		if not GerenciadorPartida.balao_ja_foi_exibido:
+			if randf() < 0.7:
+				GerenciadorPartida.balao_ja_foi_exibido = true
+				exibir_balao()
+
+func exibir_balao() -> void:
+	balao_fala.show()
+	get_tree().create_timer(3.0).timeout.connect(esconder_balao)
+
+func esconder_balao() -> void:
+	balao_fala.hide()
 	
 	

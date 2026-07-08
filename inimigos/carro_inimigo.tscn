@@ -41,6 +41,21 @@ scale = Vector2(3.1344945, 1)
 target_position = Vector2(-120.9663, -4.1666837)
 
 [node name="DetectorDeCarro" type="Area2D" parent="." unique_id=273021619]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorDeCarro" unique_id=1042721223]
 shape = SubResource("CircleShape2D_57qmd")
+
+[node name="balaodefala" type="PanelContainer" parent="." unique_id=1769182432]
+visible = false
+offset_left = -1045.8375
+offset_top = -670.83606
+offset_right = -589.8375
+offset_bottom = -460.002
+scale = Vector2(1.8952615, 1.8952615)
+
+[node name="Label" type="Label" parent="balaodefala" unique_id=1603058794]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "AQUI É SANTO ANTÔNIO!!!"
+horizontal_alignment = 1

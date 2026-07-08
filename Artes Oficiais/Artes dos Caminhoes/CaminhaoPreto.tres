@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SkinData" format=3 uid="uid://tneq8v6r5ehr"]
+[gd_resource type="Resource" script_class="SkinData" format=3 uid="uid://b5ttidrh7hf06"]
 
 [ext_resource type="Script" uid="uid://dkj66c83fpgd" path="res://Resources/ScriptsResources/Skins.gd" id="1_cxjsw"]
 [ext_resource type="Texture2D" uid="uid://hnjcfo6ru2jb" path="res://Artes Oficiais/Artes dos Caminhoes/Caminhao2.png" id="1_lgx2x"]
@@ -8,6 +8,7 @@
 script = ExtResource("1_cxjsw")
 nome_da_skin = "Caminhão Cinza"
 preco = 1500
+esta_desbloqueada = true
 textura_caminhao = ExtResource("3_nil4g")
 icone_loja = ExtResource("1_lgx2x")
 metadata/_custom_type_script = "uid://dkj66c83fpgd"

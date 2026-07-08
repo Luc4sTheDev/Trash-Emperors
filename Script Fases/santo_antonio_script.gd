@@ -10,6 +10,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	GerenciadorPartida.nome_da_fase_atual = "Santo Antônio"
 	GerenciadorPartida.progresso_alterado.connect(_on_progresso_alterado)
 	GerenciadorPartida.partida_ganha.connect(_on_partida_ganha)
 	GerenciadorPartida.partida_perdida.connect(_on_partida_perdida)
